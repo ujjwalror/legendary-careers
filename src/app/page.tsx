@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { Navbar } from '@/components/Navbar';
-import { HeroSection } from '@/components/HeroSection';
+import { ImageSequenceHero } from '@/components/ImageSequenceHero';
 import { CountryDestinations } from '@/components/CountryDestinations';
 import { MigrationServices } from '@/components/MigrationServices';
 import { EligibilityCalculator } from '@/components/EligibilityCalculator';
@@ -33,8 +33,8 @@ export default function Home() {
 
       {/* Main Content Sections */}
       <main>
-        {/* Hero Banner Section (Times New Roman Headings + Montserrat Body) */}
-        <HeroSection
+        {/* 3D Scroll-Bound Video Frame Sequence Hero */}
+        <ImageSequenceHero
           onOpenConsultation={handleOpenConsultation}
           onSelectCountry={handleSelectCountry}
         />
