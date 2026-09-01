@@ -158,7 +158,7 @@ const TestimonialsColumn: React.FC<TestimonialsColumnProps> = ({
                       '0 25px 50px -12px rgba(1, 99, 200, 0.15), 0 10px 10px -5px rgba(6, 29, 56, 0.08), 0 0 0 1px rgba(1, 99, 200, 0.2)',
                     transition: { type: 'spring', stiffness: 400, damping: 17 },
                   }}
-                  className="p-6 sm:p-8 rounded-3xl border border-[#C2DAF3] shadow-lg shadow-[#061D38]/5 max-w-sm w-full bg-white dark:bg-[#061D38] dark:border-[#0163C8]/40 transition-all duration-300 cursor-default select-none group focus:outline-none focus:ring-2 focus:ring-[#0163C8]/30 flex flex-col justify-between"
+                  className="p-6 sm:p-8 rounded-3xl border border-[#C2DAF3] shadow-lg shadow-[#061D38]/5 max-w-sm w-full bg-white transition-all duration-300 cursor-default select-none group focus:outline-none focus:ring-2 focus:ring-[#0163C8]/30 flex flex-col justify-between"
                 >
                   <blockquote className="m-0 p-0 space-y-4">
                     {/* Header: Rating & Google Badge */}
@@ -169,8 +169,8 @@ const TestimonialsColumn: React.FC<TestimonialsColumnProps> = ({
                         ))}
                       </div>
                       {item.isGoogleVerified && (
-                        <div className="flex items-center space-x-1 px-2.5 py-0.5 rounded-full bg-[#F4F8FC] dark:bg-[#0b284c] border border-[#C2DAF3]/80 dark:border-[#0163C8]/50 text-[10px] font-bold text-[#061D38] dark:text-[#96F189]">
-                          <CheckCircle2 size={12} className="text-[#0163C8] dark:text-[#96F189]" />
+                        <div className="flex items-center space-x-1 px-2.5 py-0.5 rounded-full bg-[#F4F8FC] border border-[#C2DAF3]/80 text-[10px] font-bold text-[#061D38]">
+                          <CheckCircle2 size={12} className="text-[#0163C8]" />
                           <span>Google Review</span>
                         </div>
                       )}
@@ -178,19 +178,19 @@ const TestimonialsColumn: React.FC<TestimonialsColumnProps> = ({
 
                     {/* Visa Grant Tag */}
                     {item.visaType && (
-                      <div className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-[#96F189]/20 text-[#061D38] dark:text-[#96F189] text-[11px] font-bold">
+                      <div className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-[#96F189]/20 text-[#061D38] text-[11px] font-bold">
                         <span>{item.countryFlag}</span>
                         <span>{item.visaType}</span>
                       </div>
                     )}
 
                     {/* Review Text */}
-                    <p className="text-xs sm:text-sm text-zinc-700 dark:text-zinc-200 leading-relaxed font-normal italic">
+                    <p className="text-xs sm:text-sm text-zinc-700 leading-relaxed font-normal italic">
                       "{item.text}"
                     </p>
 
                     {/* Footer Author */}
-                    <footer className="flex items-center gap-3 pt-3 border-t border-[#C2DAF3]/60 dark:border-[#0163C8]/30">
+                    <footer className="flex items-center gap-3 pt-3 border-t border-[#C2DAF3]/60">
                       <img
                         width={44}
                         height={44}
@@ -199,10 +199,10 @@ const TestimonialsColumn: React.FC<TestimonialsColumnProps> = ({
                         className="h-11 w-11 rounded-full object-cover ring-2 ring-[#0163C8]/30 group-hover:ring-[#0163C8] transition-all duration-300 ease-in-out"
                       />
                       <div className="flex flex-col">
-                        <cite className="font-heading font-bold not-italic tracking-tight text-sm text-[#061D38] dark:text-white">
+                        <cite className="font-heading font-bold not-italic tracking-tight text-sm text-[#061D38]">
                           {item.name}
                         </cite>
-                        <span className="text-[11px] font-medium text-[#0163C8] dark:text-[#96F189] mt-0.5">
+                        <span className="text-[11px] font-medium text-[#0163C8] mt-0.5">
                           {item.role}
                         </span>
                       </div>
@@ -252,29 +252,29 @@ export default function AnimatedTestimonials({
       >
         {/* Section Header */}
         <div className="flex flex-col items-center justify-center max-w-[620px] mx-auto mb-14 text-center space-y-4">
-          <div className="inline-flex items-center space-x-2 border border-[#0163C8]/40 py-1.5 px-4 rounded-full text-xs font-bold tracking-widest uppercase text-[#0163C8] bg-[#C2DAF3]/40 dark:bg-[#061D38]">
+          <div className="inline-flex items-center space-x-2 border border-[#0163C8]/40 py-1.5 px-4 rounded-full text-xs font-bold tracking-widest uppercase text-[#0163C8] bg-[#C2DAF3]/40">
             <span className="w-2 h-2 rounded-full bg-[#96F189] animate-pulse" />
             <span>{badge}</span>
           </div>
 
-          <h2 id="animated-testimonials-heading" className="font-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-[#061D38] dark:text-white">
+          <h2 id="animated-testimonials-heading" className="font-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-[#061D38]">
             {title}
           </h2>
 
-          <p className="text-center text-zinc-600 dark:text-zinc-300 text-sm sm:text-base leading-relaxed max-w-lg">
+          <p className="text-center text-zinc-600 text-sm sm:text-base leading-relaxed max-w-lg">
             {subtitle}
           </p>
 
           {/* Google 5.0 Rating Badge */}
-          <div className="pt-2 flex items-center space-x-3 bg-white dark:bg-[#061D38] px-5 py-2 rounded-2xl border border-[#C2DAF3] shadow-sm">
+          <div className="pt-2 flex items-center space-x-3 bg-white px-5 py-2 rounded-2xl border border-[#C2DAF3] shadow-sm">
             <div className="flex text-amber-400 text-sm">
               {[...Array(5)].map((_, i) => (
                 <span key={i}>★</span>
               ))}
             </div>
-            <span className="text-xs font-extrabold text-[#061D38] dark:text-white">5.0 / 5.0 Rating</span>
+            <span className="text-xs font-extrabold text-[#061D38]">5.0 / 5.0 Rating</span>
             <span className="text-[11px] text-zinc-400">|</span>
-            <span className="text-[11px] font-semibold text-[#0163C8] dark:text-[#96F189]">150+ Google Reviews</span>
+            <span className="text-[11px] font-semibold text-[#0163C8]">150+ Google Reviews</span>
           </div>
         </div>
 
