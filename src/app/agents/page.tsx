@@ -450,20 +450,25 @@ export default function AgentsPage() {
         <section className="py-16 bg-[#061D38] text-white px-6">
           <div className="max-w-5xl mx-auto rounded-3xl bg-[#0b284c] border border-[#0163C8] p-8 sm:p-12 text-center space-y-6 relative overflow-hidden">
             <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-[#0163C8]/40 border border-[#0163C8] text-[#96F189] text-xs font-bold uppercase">
-              <span>🛡️ 100% Ethical & Legal Compliance</span>
+              <span>🛡️ 100% MARA Registered & Verified</span>
             </div>
             <h2 className="font-heading text-2xl sm:text-4xl font-bold">
-              Every Agent is Verified & License Checked
+              Verify Any Agent on the Official Australian Register
             </h2>
             <p className="text-zinc-300 text-xs sm:text-sm max-w-2xl mx-auto leading-relaxed">
-              All Australian migration consultations are conducted directly by Registered Migration Agents bound by the MARA Code of Conduct. University admissions advisors hold QEAC certifications.
+              All our migration consultants hold active registration numbers (MARN) bound by the Australian OMARA Code of Conduct. You can independently verify any agent's license status on the official Department of Home Affairs portal.
             </p>
-            <button
-              onClick={() => handleOpenBookModal()}
-              className="px-8 py-3.5 rounded-full bg-[#96F189] text-[#061D38] font-bold text-xs uppercase tracking-wider hover:bg-white transition-colors cursor-pointer shadow-lg shadow-[#96F189]/20"
-            >
-              Get Matched With An Expert Now →
-            </button>
+            <div className="pt-2 flex justify-center">
+              <a
+                href="https://portal.mara.gov.au/search-the-register-of-migration-agents/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-8 py-3.5 rounded-full bg-[#96F189] text-[#061D38] font-bold text-xs uppercase tracking-wider hover:bg-white transition-all cursor-pointer shadow-lg shadow-[#96F189]/20 inline-flex items-center space-x-2"
+              >
+                <span>Verify Agent on Official MARA Register</span>
+                <span>↗</span>
+              </a>
+            </div>
           </div>
         </section>
       </div>
