@@ -178,7 +178,7 @@ export const ImageSequenceHero: React.FC<HeroProps> = ({
                 <span>🪟 YOUR GLOBAL HORIZON</span>
               </div>
 
-              <h2 className="font-heading font-extrabold text-2xl sm:text-5xl lg:text-6xl text-white leading-tight drop-shadow-lg">
+              <h2 className="font-heading font-extrabold text-3xl sm:text-5xl lg:text-6xl text-white leading-tight drop-shadow-lg">
                 A Window to Unbounded Opportunities
               </h2>
 
@@ -226,7 +226,7 @@ export const ImageSequenceHero: React.FC<HeroProps> = ({
                 <span>🛡️ TRUSTED MIGRATION ADVISORS</span>
               </div>
 
-              <h2 className="font-heading font-extrabold text-2xl sm:text-5xl text-white leading-tight">
+              <h2 className="font-heading font-extrabold text-3xl sm:text-5xl text-white leading-tight">
                 End-to-End Migration & Overseas Admissions Support
               </h2>
 
@@ -269,7 +269,7 @@ export const ImageSequenceHero: React.FC<HeroProps> = ({
                 <span>⚡ START YOUR JOURNEY TODAY</span>
               </div>
 
-              <h2 className="font-heading font-extrabold text-2xl sm:text-5xl text-white leading-tight">
+              <h2 className="font-heading font-extrabold text-3xl sm:text-5xl text-white leading-tight">
                 Ready to Fast-Track Your Overseas Visa & PR?
               </h2>
 
