@@ -110,20 +110,20 @@ export const ImageSequenceHero: React.FC<HeroProps> = ({
               {/* Trust Badge */}
               <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-[#0163C8]/40 border border-[#0163C8] text-[#96F189] text-xs font-bold uppercase tracking-wider backdrop-blur-md">
                 <span className="w-2.5 h-2.5 rounded-full bg-[#96F189] animate-pulse" />
-                <span>MARA #1804921 & QEAC CERTIFIED SPECIALISTS</span>
+                <span>MARA & QEAC CERTIFIED SPECIALISTS</span>
               </div>
 
               {/* Primary Times New Roman Heading */}
               <h1 className="font-heading font-extrabold text-3xl sm:text-5xl lg:text-6xl text-white leading-tight tracking-tight drop-shadow-lg">
                 Your Gateway to Global Education &{' '}
                 <span className="text-[#96F189] underline decoration-[#0163C8] decoration-4 underline-offset-8">
-                  Permanent Residency
+                  Migration Pathways
                 </span>
               </h1>
 
               {/* Body Subtitle */}
               <p className="font-body text-zinc-200 text-sm sm:text-lg leading-relaxed max-w-2xl mx-auto font-normal drop-shadow">
-                Navigate university admissions, visa applications, and skilled migration pathways with end-to-end expert guidance. Over 15,000+ students and professionals placed worldwide.
+                Navigate university admissions, visa applications, and skilled migration pathways with end-to-end expert guidance.
               </p>
 
               {/* Popular Study Destination Chips */}
