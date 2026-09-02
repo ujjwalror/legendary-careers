@@ -64,6 +64,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
           <Link href="/calculator" className="hover:text-[#0163C8] transition-colors">
             Point Calculator
           </Link>
+          <Link href="/financial-calculator" className="hover:text-[#0163C8] transition-colors font-semibold text-[#0163C8]">
+            Financial Calculator 💰
+          </Link>
         </div>
 
         {/* CTA Buttons */}
@@ -140,6 +143,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
             className="block py-2 text-[#061D38] hover:text-[#0163C8]"
           >
             Point Calculator
+          </Link>
+          <Link
+            href="/financial-calculator"
+            onClick={() => setMobileMenuOpen(false)}
+            className="block py-2 text-[#0163C8] font-semibold"
+          >
+            Financial Calculator 💰
           </Link>
           <div className="pt-2 space-y-2">
             <button
