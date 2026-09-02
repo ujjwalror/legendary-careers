@@ -239,19 +239,22 @@ export const ImageSequenceHero: React.FC<HeroProps> = ({
                 Guided directly by MARA registered agents & QEAC certified counselors specializing in skills assessments, state nominations, and student visas.
               </p>
 
-              {/* MARA Compliant Metrics Grid */}
-              <div className="grid grid-cols-3 gap-4 pt-2 max-w-2xl mx-auto">
-                <div className="p-4 rounded-2xl bg-[#061D38]/80 backdrop-blur-md border border-[#0163C8] text-center">
-                  <div className="font-heading font-bold text-2xl sm:text-3xl text-[#96F189]">15,000+</div>
-                  <div className="text-[11px] font-medium text-zinc-300 mt-1 uppercase">Clients Guided</div>
+              {/* 3 Feature Highlights (Sleek Glassmorphism matching Milestone 2) */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2 max-w-2xl mx-auto">
+                <div className="p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-center">
+                  <div className="text-amber-400 text-sm mb-1 font-bold">★★★★★</div>
+                  <div className="font-bold text-xs text-white">150+ 5-Star Google Reviews</div>
+                  <div className="text-[10px] text-zinc-300 mt-0.5">Verified Client Feedback</div>
                 </div>
-                <div className="p-4 rounded-2xl bg-[#061D38]/80 backdrop-blur-md border border-[#0163C8] text-center">
-                  <div className="font-heading font-bold text-2xl sm:text-3xl text-white">MARA & QEAC</div>
-                  <div className="text-[11px] font-medium text-zinc-300 mt-1 uppercase">Certified Advisors</div>
+                <div className="p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-center">
+                  <div className="text-xl mb-1">👨‍⚖️</div>
+                  <div className="font-bold text-xs text-white">MARA & QEAC</div>
+                  <div className="text-[10px] text-zinc-300 mt-0.5">Certified Advisors</div>
                 </div>
-                <div className="p-4 rounded-2xl bg-[#061D38]/80 backdrop-blur-md border border-[#0163C8] text-center">
-                  <div className="font-heading font-bold text-2xl sm:text-3xl text-[#96F189]">100%</div>
-                  <div className="text-[11px] font-medium text-zinc-300 mt-1 uppercase">Ethical Compliance</div>
+                <div className="p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-center">
+                  <div className="text-xl mb-1">📋</div>
+                  <div className="font-bold text-xs text-white">Personalized</div>
+                  <div className="text-[10px] text-zinc-300 mt-0.5">Migration Strategy</div>
                 </div>
               </div>
             </div>
