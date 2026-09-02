@@ -36,7 +36,7 @@ export const ImageSequenceHero: React.FC<HeroProps> = ({
     };
   }, []);
 
-  // Helper calculation for opacity ranges
+  // Helper calculation for smooth opacity & transform ranges
   const getPhaseOpacity = (start: number, peakStart: number, peakEnd: number, end: number) => {
     if (scrollProgress < start || scrollProgress > end) return 0;
     if (scrollProgress >= peakStart && scrollProgress <= peakEnd) return 1;
@@ -46,10 +46,11 @@ export const ImageSequenceHero: React.FC<HeroProps> = ({
     return 1 - (scrollProgress - peakEnd) / (end - peakEnd);
   };
 
-  const opacityPhase1 = getPhaseOpacity(0, 0, 0.20, 0.26);
-  const opacityPhase2 = getPhaseOpacity(0.24, 0.30, 0.45, 0.51);
-  const opacityPhase3 = getPhaseOpacity(0.49, 0.55, 0.70, 0.76);
-  const opacityPhase4 = getPhaseOpacity(0.74, 0.80, 1.0, 1.0);
+  // Smooth, non-overlapping opacity curves
+  const opacityPhase1 = getPhaseOpacity(0, 0, 0.18, 0.25);
+  const opacityPhase2 = getPhaseOpacity(0.23, 0.30, 0.44, 0.50);
+  const opacityPhase3 = getPhaseOpacity(0.48, 0.55, 0.69, 0.75);
+  const opacityPhase4 = getPhaseOpacity(0.73, 0.80, 1.0, 1.0);
 
   return (
     <section
@@ -66,8 +67,8 @@ export const ImageSequenceHero: React.FC<HeroProps> = ({
         />
 
         {/* Ambient Dark Gradient Vignette for Text Contrast */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#061D38] via-[#061D38]/40 to-[#061D38]/70 pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#061D38]/80 via-transparent to-[#061D38]/80 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#061D38] via-[#061D38]/45 to-[#061D38]/70 pointer-events-none z-10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#061D38]/80 via-transparent to-[#061D38]/80 pointer-events-none z-10" />
 
         {/* Scroll Progress Indicator Bar at Bottom */}
         <div className="absolute bottom-0 left-0 right-0 h-1 bg-white/10 z-30">
@@ -91,22 +92,19 @@ export const ImageSequenceHero: React.FC<HeroProps> = ({
           </div>
         </div>
 
-        {/* Dynamic Text Cards Layer */}
+        {/* Dynamic Text Cards Layer (Statically Positioned Fixed Overlays for 0 Glitch) */}
         <div className="absolute inset-0 z-20 flex items-center justify-center p-6 sm:p-10 pointer-events-none">
-          <div className="max-w-4xl mx-auto text-center w-full relative">
+          <div className="max-w-4xl mx-auto text-center w-full h-full relative flex items-center justify-center">
+
             {/* ========================================================================= */}
             {/* MILESTONE 1 (0% - 22% Scroll Progress) */}
             {/* ========================================================================= */}
             <div
-              className="space-y-6 transition-all duration-500 ease-out"
+              className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center space-y-6 transition-all duration-700 ease-out will-change-[transform,opacity]"
               style={{
                 opacity: opacityPhase1,
-                transform: `scale(${0.95 + opacityPhase1 * 0.05}) translateY(${(1 - opacityPhase1) * 20}px)`,
+                transform: `translateY(${(1 - opacityPhase1) * 16}px) scale(${0.96 + opacityPhase1 * 0.04})`,
                 pointerEvents: opacityPhase1 > 0.5 ? 'auto' : 'none',
-                position: opacityPhase1 > 0 ? 'relative' : 'absolute',
-                top: 0,
-                left: 0,
-                right: 0,
               }}
             >
               {/* Trust Badge */}
@@ -171,97 +169,89 @@ export const ImageSequenceHero: React.FC<HeroProps> = ({
             </div>
 
             {/* ========================================================================= */}
-            {/* MILESTONE 2 (25% - 48% Scroll Progress) */}
+            {/* MILESTONE 2 (25% - 48% Scroll Progress) - A WINDOW TO UNBOUNDED OPPORTUNITIES */}
             {/* ========================================================================= */}
             <div
-              className="space-y-6 transition-all duration-500 ease-out"
+              className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center space-y-6 transition-all duration-700 ease-out will-change-[transform,opacity]"
               style={{
                 opacity: opacityPhase2,
-                transform: `scale(${0.95 + opacityPhase2 * 0.05}) translateY(${(1 - opacityPhase2) * 20}px)`,
+                transform: `translateY(${(1 - opacityPhase2) * 16}px) scale(${0.96 + opacityPhase2 * 0.04})`,
                 pointerEvents: opacityPhase2 > 0.5 ? 'auto' : 'none',
-                position: opacityPhase2 > 0 ? 'relative' : 'absolute',
-                top: 0,
-                left: 0,
-                right: 0,
               }}
             >
               <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-[#0163C8]/40 border border-[#0163C8] text-[#96F189] text-xs font-bold uppercase tracking-wider backdrop-blur-md">
-                <span>🌐 GLOBAL PLACEMENT NETWORK</span>
+                <span>🪟 YOUR GLOBAL HORIZON</span>
               </div>
 
-              <h2 className="font-heading font-extrabold text-3xl sm:text-5xl text-white leading-tight">
-                500+ Top Partner Universities Across 6 Countries
+              <h2 className="font-heading font-extrabold text-3xl sm:text-5xl lg:text-6xl text-white leading-tight drop-shadow-lg">
+                A Window to Unbounded Opportunities
               </h2>
 
-              <p className="text-zinc-200 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
-                Guaranteed admissions guidance, GTE & Genuine Student audits, and scholarship grants up to <span className="text-[#96F189] font-bold">$25,000 AUD / USD</span>.
+              <p className="text-zinc-200 text-sm sm:text-lg max-w-xl mx-auto leading-relaxed drop-shadow">
+                Opening doors to world-class university placements, global career growth, and international residency pathways.
               </p>
 
               {/* 4 Feature Highlights */}
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2 max-w-3xl mx-auto">
                 <div className="p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-center">
                   <div className="text-xl mb-1">🇦🇺</div>
-                  <div className="font-bold text-xs text-white">Australia 500</div>
+                  <div className="font-bold text-xs text-white">Australia</div>
                   <div className="text-[10px] text-zinc-300 mt-0.5">Subclass 500 & PR</div>
                 </div>
                 <div className="p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-center">
                   <div className="text-xl mb-1">🇨🇦</div>
-                  <div className="font-bold text-xs text-white">Canada PGWP</div>
-                  <div className="text-[10px] text-zinc-300 mt-0.5">Express Entry PR</div>
+                  <div className="font-bold text-xs text-white">Canada</div>
+                  <div className="text-[10px] text-zinc-300 mt-0.5">PGWP & Express Entry</div>
                 </div>
                 <div className="p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-center">
                   <div className="text-xl mb-1">🇬🇧</div>
-                  <div className="font-bold text-xs text-white">UK 7-Day Grant</div>
+                  <div className="font-bold text-xs text-white">United Kingdom</div>
                   <div className="text-[10px] text-zinc-300 mt-0.5">CAS & Scholarships</div>
                 </div>
                 <div className="p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-center">
                   <div className="text-xl mb-1">🇩🇪</div>
-                  <div className="font-bold text-xs text-white">Germany Public</div>
+                  <div className="font-bold text-xs text-white">Germany</div>
                   <div className="text-[10px] text-zinc-300 mt-0.5">Tuition-Free Master</div>
                 </div>
               </div>
             </div>
 
             {/* ========================================================================= */}
-            {/* MILESTONE 3 (50% - 73% Scroll Progress) */}
+            {/* MILESTONE 3 (50% - 73% Scroll Progress) - MARA COMPLIANT (NO PERCENTAGES) */}
             {/* ========================================================================= */}
             <div
-              className="space-y-6 transition-all duration-500 ease-out"
+              className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center space-y-6 transition-all duration-700 ease-out will-change-[transform,opacity]"
               style={{
                 opacity: opacityPhase3,
-                transform: `scale(${0.95 + opacityPhase3 * 0.05}) translateY(${(1 - opacityPhase3) * 20}px)`,
+                transform: `translateY(${(1 - opacityPhase3) * 16}px) scale(${0.96 + opacityPhase3 * 0.04})`,
                 pointerEvents: opacityPhase3 > 0.5 ? 'auto' : 'none',
-                position: opacityPhase3 > 0 ? 'relative' : 'absolute',
-                top: 0,
-                left: 0,
-                right: 0,
               }}
             >
               <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-[#0163C8]/40 border border-[#0163C8] text-[#96F189] text-xs font-bold uppercase tracking-wider backdrop-blur-md">
-                <span>📊 PROVEN TRACK RECORD</span>
+                <span>🛡️ TRUSTED MIGRATION ADVISORS</span>
               </div>
 
               <h2 className="font-heading font-extrabold text-3xl sm:text-5xl text-white leading-tight">
-                98.4% Visa Success Rate with 15,000+ Placements
+                End-to-End Migration & Overseas Admissions Support
               </h2>
 
               <p className="text-zinc-200 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
-                Licensed MARA migration attorneys specializing in ACS, VETASSESS, Engineers Australia CDR skills assessments, Subclass 189/190/491 PR points, and AAT refusal appeals.
+                Guided directly by MARA registered agents & QEAC certified counselors specializing in skills assessments, state nominations, and student visas.
               </p>
 
-              {/* Metrics Grid */}
+              {/* MARA Compliant Metrics Grid */}
               <div className="grid grid-cols-3 gap-4 pt-2 max-w-2xl mx-auto">
                 <div className="p-4 rounded-2xl bg-[#061D38]/80 backdrop-blur-md border border-[#0163C8] text-center">
-                  <div className="font-heading font-bold text-2xl sm:text-3xl text-[#96F189]">98.4%</div>
-                  <div className="text-[11px] font-medium text-zinc-300 mt-1 uppercase">Visa Success</div>
+                  <div className="font-heading font-bold text-2xl sm:text-3xl text-[#96F189]">15,000+</div>
+                  <div className="text-[11px] font-medium text-zinc-300 mt-1 uppercase">Clients Guided</div>
                 </div>
                 <div className="p-4 rounded-2xl bg-[#061D38]/80 backdrop-blur-md border border-[#0163C8] text-center">
-                  <div className="font-heading font-bold text-2xl sm:text-3xl text-white">15,000+</div>
-                  <div className="text-[11px] font-medium text-zinc-300 mt-1 uppercase">Clients Placed</div>
+                  <div className="font-heading font-bold text-2xl sm:text-3xl text-white">MARA & QEAC</div>
+                  <div className="text-[11px] font-medium text-zinc-300 mt-1 uppercase">Certified Advisors</div>
                 </div>
                 <div className="p-4 rounded-2xl bg-[#061D38]/80 backdrop-blur-md border border-[#0163C8] text-center">
                   <div className="font-heading font-bold text-2xl sm:text-3xl text-[#96F189]">100%</div>
-                  <div className="text-[11px] font-medium text-zinc-300 mt-1 uppercase">MARA Compliant</div>
+                  <div className="text-[11px] font-medium text-zinc-300 mt-1 uppercase">Ethical Compliance</div>
                 </div>
               </div>
             </div>
@@ -270,15 +260,11 @@ export const ImageSequenceHero: React.FC<HeroProps> = ({
             {/* MILESTONE 4 (75% - 100% Scroll Progress) */}
             {/* ========================================================================= */}
             <div
-              className="space-y-6 transition-all duration-500 ease-out"
+              className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center space-y-6 transition-all duration-700 ease-out will-change-[transform,opacity]"
               style={{
                 opacity: opacityPhase4,
-                transform: `scale(${0.95 + opacityPhase4 * 0.05}) translateY(${(1 - opacityPhase4) * 20}px)`,
+                transform: `translateY(${(1 - opacityPhase4) * 16}px) scale(${0.96 + opacityPhase4 * 0.04})`,
                 pointerEvents: opacityPhase4 > 0.5 ? 'auto' : 'none',
-                position: opacityPhase4 > 0 ? 'relative' : 'absolute',
-                top: 0,
-                left: 0,
-                right: 0,
               }}
             >
               <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-[#0163C8]/40 border border-[#0163C8] text-[#96F189] text-xs font-bold uppercase tracking-wider backdrop-blur-md">
@@ -313,6 +299,7 @@ export const ImageSequenceHero: React.FC<HeroProps> = ({
                 </a>
               </div>
             </div>
+
           </div>
         </div>
       </div>
