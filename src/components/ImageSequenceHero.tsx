@@ -109,7 +109,7 @@ export const ImageSequenceHero: React.FC<HeroProps> = ({
             >
 
               {/* Primary Times New Roman Heading */}
-              <h1 className="font-heading font-extrabold text-2xl sm:text-5xl lg:text-6xl text-white leading-tight tracking-tight drop-shadow-lg">
+              <h1 className="font-heading font-extrabold text-3xl sm:text-5xl lg:text-6xl text-white leading-tight tracking-tight drop-shadow-lg">
                 Your Gateway to Global Education &{' '}
                 <span className="text-[#96F189] underline decoration-[#0163C8] decoration-4 underline-offset-8">
                   Migration Pathways
