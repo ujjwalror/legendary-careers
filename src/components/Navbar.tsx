@@ -13,7 +13,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
   return (
     <nav className="fixed top-0 left-0 right-0 w-full z-40 bg-white/95 backdrop-blur-md border-b border-[#C2DAF3]/60 shadow-sm">
       {/* Top Announcement Bar */}
-      <div className="bg-[#061D38] text-white text-xs font-body py-2 px-6 flex justify-center sm:justify-between items-center">
+      <div className="bg-[#061D38] text-white text-xs font-body py-2 px-4 sm:px-8 xl:px-12 flex justify-center sm:justify-between items-center">
         <div className="flex items-center space-x-6">
           <span className="flex items-center space-x-1.5">
             <span className="w-2 h-2 rounded-full bg-[#96F189] animate-pulse" />
@@ -37,9 +37,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
       </div>
 
       {/* Main Navbar */}
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div className="max-w-[1536px] mx-auto px-4 sm:px-8 xl:px-12 py-4 flex items-center justify-between">
         {/* Brand Logo */}
-        <Link href="/" className="flex items-center group">
+        <Link href="/" className="flex items-center group shrink-0">
           <img
             src="/logo.png"
             alt="Legendary Careers Logo"
@@ -48,7 +48,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
         </Link>
 
         {/* Desktop Nav Links */}
-        <div className="hidden lg:flex items-center space-x-8 font-body font-medium text-sm text-[#061D38]">
+        <div className="hidden lg:flex items-center space-x-5 xl:space-x-7 font-body font-medium text-xs xl:text-sm text-[#061D38]">
           <Link href="/#services" className="hover:text-[#0163C8] transition-colors">
             Our services
           </Link>
@@ -64,7 +64,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
           <Link href="/calculator" className="hover:text-[#0163C8] transition-colors">
             Point Calculator
           </Link>
-          <Link href="/financial-calculator" className="hover:text-[#0163C8] transition-colors font-semibold text-[#0163C8]">
+          <Link href="/financial-calculator" className="hover:text-[#0163C8] transition-colors">
             Financial Calculator
           </Link>
         </div>
