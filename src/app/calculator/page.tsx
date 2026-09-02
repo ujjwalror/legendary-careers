@@ -117,7 +117,7 @@ export default function PointCalculatorPage() {
         <Navbar />
 
         {/* Hero Header */}
-        <section className="relative bg-[#061D38] text-white py-12 sm:py-16 px-6 overflow-hidden">
+        <section className="relative bg-[#061D38] text-white pt-32 sm:pt-36 pb-12 sm:pb-16 px-6 overflow-hidden">
           <div className="absolute top-0 right-0 w-96 h-96 bg-[#0163C8]/30 rounded-full blur-3xl pointer-events-none" />
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#96F189]/10 rounded-full blur-3xl pointer-events-none" />
 

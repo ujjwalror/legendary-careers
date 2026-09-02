@@ -11,7 +11,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <nav className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-[#C2DAF3]/60 shadow-sm">
+    <nav className="fixed top-0 left-0 right-0 w-full z-40 bg-white/95 backdrop-blur-md border-b border-[#C2DAF3]/60 shadow-sm">
       {/* Top Announcement Bar */}
       <div className="bg-[#061D38] text-white text-xs font-body py-2 px-6 flex justify-between items-center">
         <div className="flex items-center space-x-6">

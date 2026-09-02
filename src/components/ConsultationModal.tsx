@@ -6,9 +6,10 @@ interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
   selectedAgent?: string;
+  calendarUrl?: string;
 }
 
-export const ConsultationModal: React.FC<ModalProps> = ({ isOpen, onClose, selectedAgent }) => {
+export const ConsultationModal: React.FC<ModalProps> = ({ isOpen, onClose, selectedAgent, calendarUrl }) => {
   const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
@@ -63,6 +64,23 @@ export const ConsultationModal: React.FC<ModalProps> = ({ isOpen, onClose, selec
                   ? `Your appointment will be directly routed to ${selectedAgent}.` 
                   : 'Speak directly with a licensed MARA migration counselor or university advisor.'}
               </p>
+
+              {calendarUrl && (
+                <div className="p-3 bg-[#F4F8FC] border border-[#C2DAF3] rounded-2xl flex items-center justify-between">
+                  <div className="flex items-center space-x-2">
+                    <span className="text-base">📅</span>
+                    <span className="text-[11px] font-semibold text-[#061D38]">Direct Calendar Booking Available</span>
+                  </div>
+                  <a
+                    href={calendarUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-3 py-1.5 rounded-lg bg-[#0163C8] text-white text-[10px] font-bold uppercase tracking-wider hover:bg-[#061D38] transition-colors"
+                  >
+                    Open Calendar ↗
+                  </a>
+                </div>
+              )}
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-4 font-body text-xs">

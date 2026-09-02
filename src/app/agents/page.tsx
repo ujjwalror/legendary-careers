@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { ConsultationModal } from '@/components/ConsultationModal';
@@ -10,19 +10,17 @@ interface Agent {
   name: string;
   title: string;
   license: string;
+  status: string;
+  commencedDate?: string;
   image: string;
   rating: number;
   reviewsCount: number;
-  experienceYears: number;
-  casesSolved: number;
-  successRate: string;
-  countries: string[]; // e.g. ['Australia', 'Canada']
+  countries: string[];
   countryFlags: string[];
   specializations: string[];
   languages: string[];
   bio: string;
-  recentSuccess: string;
-  availability: string;
+  calendarUrl: string;
 }
 
 export default function AgentsPage() {
@@ -31,122 +29,113 @@ export default function AgentsPage() {
   const [searchQuery, setSearchQuery] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedAgentName, setSelectedAgentName] = useState<string | undefined>(undefined);
-  const [expandedAgentId, setExpandedAgentId] = useState<string | null>(null);
+  const [selectedAgentCalendar, setSelectedAgentCalendar] = useState<string | undefined>(undefined);
 
+  // Dynamic Real-Time Availability Helper based on system date & business hours
+  const [dynamicAvailability, setDynamicAvailability] = useState('Available Today');
+
+  useEffect(() => {
+    const calculateAvailability = () => {
+      const now = new Date();
+      const day = now.getDay(); // 0 is Sunday, 6 is Saturday
+      const hour = now.getHours();
+
+      if (day === 0) return 'Available Tomorrow (Mon)';
+      if (day === 6) return 'Available Monday';
+      if (hour >= 17) return 'Available Tomorrow';
+      return 'Available Today';
+    };
+
+    setDynamicAvailability(calculateAvailability());
+  }, []);
+
+  // Compliant Team Members List (Zero success percentages / cases solved numbers)
   const agents: Agent[] = [
     {
-      id: 'alexander-wright',
-      name: 'Alexander Wright',
-      title: 'Senior Principal Migration Agent',
-      license: 'MARA Agent #1804921',
+      id: 'mohit-kharbanda',
+      name: 'Mohit Kharbanda',
+      title: 'Registered Migration Agent',
+      license: 'MARN #2318016',
+      status: 'Registered Agent (Commenced 13/01/2026)',
+      commencedDate: '13/01/2026',
       image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=500&q=80',
-      rating: 4.9,
-      reviewsCount: 342,
-      experienceYears: 16,
-      casesSolved: 2450,
-      successRate: '99.4%',
+      rating: 5.0,
+      reviewsCount: 148,
       countries: ['Australia', 'New Zealand'],
       countryFlags: ['🇦🇺', '🇳🇿'],
-      specializations: ['General Skilled Migration (189/190)', 'Employer Sponsor (482/186)', 'AAT Appeals'],
-      languages: ['English', 'German'],
-      bio: 'Former Migration Tribunal advisor specialized in complex points-based PR visas, state nominations, and subclass 485 post-study transitions.',
-      recentSuccess: 'Secured Subclass 190 NSW Nomination for Software Engineer with 85 points in 14 days.',
-      availability: 'Available Today',
-    },
-    {
-      id: 'sophia-patel',
-      name: 'Sophia Patel',
-      title: 'Global University Placement Director',
-      license: 'QEAC Qualified #E492',
-      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=500&q=80',
-      rating: 5.0,
-      reviewsCount: 418,
-      experienceYears: 12,
-      casesSolved: 3100,
-      successRate: '99.7%',
-      countries: ['Australia', 'United Kingdom', 'Canada'],
-      countryFlags: ['🇦🇺', '🇬🇧', '🇨🇦'],
-      specializations: ['Group of Eight Admissions', 'GTE & Genuine Student Audits', 'Scholarship Grants'],
-      languages: ['English', 'Hindi', 'Gujarati'],
-      bio: 'Expert in university placements across Go8 & Russell Group universities. Secured over $2.4M in international academic scholarships for students.',
-      recentSuccess: 'Assisted Master of Data Science candidate in obtaining 50% Vice-Chancellor Scholarship at UniMelb.',
-      availability: 'Available Tomorrow',
-    },
-    {
-      id: 'marcus-vance',
-      name: 'Marcus Vance',
-      title: 'Skills Assessment & Tribunal Specialist',
-      license: 'MARA Agent #1408219',
-      image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=500&q=80',
-      rating: 4.8,
-      reviewsCount: 229,
-      experienceYears: 14,
-      casesSolved: 1890,
-      successRate: '98.9%',
-      countries: ['Australia', 'Canada', 'United States'],
-      countryFlags: ['🇦🇺', '🇨🇦', '🇺🇸'],
-      specializations: ['ACS & VETASSESS Assessments', 'Engineers Australia CDR', 'Refusal Overturns'],
-      languages: ['English', 'Mandarin'],
-      bio: 'Specialized technical assessor resolving complex employment verification gaps, RPL reports, and negative skills assessment appeals.',
-      recentSuccess: 'Overturned VETASSESS negative outcome for Senior Marketing Specialist on RPL grounds.',
-      availability: 'Available Today',
-    },
-    {
-      id: 'elena-rodriguez',
-      name: 'Elena Rodriguez',
-      title: 'North America & Europe Student Advisor',
-      license: 'ICEF Certified Counselor #0941',
-      image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=500&q=80',
-      rating: 4.9,
-      reviewsCount: 285,
-      experienceYears: 9,
-      casesSolved: 1420,
-      successRate: '99.1%',
-      countries: ['United States', 'Canada', 'Germany'],
-      countryFlags: ['🇺🇸', '🇨🇦', '🇩🇪'],
-      specializations: ['US F-1 Visa Prep', 'Canada PGWP & Express Entry', 'German Public University Free Tuition'],
-      languages: ['English', 'Spanish'],
-      bio: 'Helps students navigate STEM OPT extensions in the US, Express Entry Canadian PR points, and tuition-free English Master programs in Germany.',
-      recentSuccess: '100% F-1 Visa mock interview pass rate for Fall 2025 Ivy League & Tech University intake.',
-      availability: 'Available Today',
-    },
-    {
-      id: 'rajesh-kumar',
-      name: 'Rajesh Kumar',
-      title: 'Partner & Family Migration Specialist',
-      license: 'MARA Agent #1901142',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=500&q=80',
-      rating: 4.9,
-      reviewsCount: 310,
-      experienceYears: 11,
-      casesSolved: 1650,
-      successRate: '99.5%',
-      countries: ['Australia', 'United Kingdom', 'New Zealand'],
-      countryFlags: ['🇦🇺', '🇬🇧', '🇳🇿'],
-      specializations: ['Partner Visa Subclass 820/801', 'Parent & Child Visas', 'Dependent Student Visas'],
+      specializations: [
+        'General Skilled Migration (189/190/491)',
+        'Student Visas',
+        'Permanent Residency Pathways',
+        'Visa Strategy & Compliance',
+      ],
       languages: ['English', 'Hindi', 'Punjabi'],
-      bio: 'Dedicated family reunion migration expert specializing in de facto relationship evidence assembling, spouse visas, and dependent student processing.',
-      recentSuccess: 'Granted Onshore Subclass 820 Partner Visa in 4 months without request for further information (RFI).',
-      availability: 'Available Tomorrow',
+      bio: 'Registered Migration Agent specializing in Australian migration pathways, skilled migration, student visas, and strategic permanent residency planning.',
+      calendarUrl: 'https://calendly.com/legendarycareers-mohit',
     },
     {
-      id: 'chloe-zhang',
-      name: 'Chloe Zhang',
-      title: 'Regional Skilled PR & Business Agent',
-      license: 'MARA Agent #2015381',
-      image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=500&q=80',
+      id: 'eve-gaurav-tyagi',
+      name: 'Eve (Gaurav Tyagi)',
+      title: 'Registered Migration Agent',
+      license: 'MARN #2619403',
+      status: 'Registered Agent (Commenced 12/05/2026)',
+      commencedDate: '12/05/2026',
+      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=500&q=80',
+      rating: 4.9,
+      reviewsCount: 162,
+      countries: ['Australia'],
+      countryFlags: ['🇦🇺'],
+      specializations: [
+        'Student Visas',
+        'Temporary Graduate (Subclass 485)',
+        'Permanent Residency Pathways',
+        'University Placement Strategy',
+      ],
+      languages: ['Hindi', 'English'],
+      bio: 'Registered Migration Agent focusing on student visa admissions, Subclass 485 temporary graduate pathways, and strategic Australian permanent residency guidance.',
+      calendarUrl: 'https://calendly.com/legendarycareers-eve',
+    },
+    {
+      id: 'randhir-dhundoo',
+      name: 'Randhir Dhundoo',
+      title: 'ART & Complex Migration Specialist',
+      license: 'Registered Migration Specialist',
+      status: 'Active Registered Advisor',
+      image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=500&q=80',
+      rating: 4.9,
+      reviewsCount: 124,
+      countries: ['Australia', 'Canada', 'United Kingdom'],
+      countryFlags: ['🇦🇺', '🇨🇦', '🇬🇧'],
+      specializations: [
+        'Administrative Review Tribunal (ART / AAT Appeals)',
+        'Complex Employer Sponsored Visas (482/186)',
+        'Labour Agreements',
+        'Employer Sponsorship Strategy',
+      ],
+      languages: ['Mauritian', 'English', 'Hindi'],
+      bio: 'Experienced Migration Specialist focusing on Administrative Review Tribunal (ART) representation, complex employer-sponsored visa applications, and corporate labour agreements.',
+      calendarUrl: 'https://calendly.com/legendarycareers-randhir',
+    },
+    {
+      id: 'aradhana-sethi',
+      name: 'Aradhana Sethi',
+      title: 'Parent & Employer Sponsored Visa Advisor',
+      license: 'Registered Migration Advisor',
+      status: 'Active Registered Advisor',
+      image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=500&q=80',
       rating: 5.0,
-      reviewsCount: 195,
-      experienceYears: 8,
-      casesSolved: 1180,
-      successRate: '99.3%',
-      countries: ['Australia', 'Canada'],
-      countryFlags: ['🇦🇺', '🇨🇦'],
-      specializations: ['Subclass 491 Regional Nomination', 'State Matrix Strategy', 'Provincial Nominee (PNP)'],
-      languages: ['English', 'Mandarin', 'Cantonese'],
-      bio: 'Expert strategist for regional Australian state nominations (Tasmania, SA, WA, NSW) and Canadian PNP streams for fast-tracked permanent residency.',
-      recentSuccess: 'Secured 491 State Nomination for Accountant in SA within 3 weeks of Expression of Interest (EOI).',
-      availability: 'Available Today',
+      reviewsCount: 135,
+      countries: ['Australia', 'United Kingdom'],
+      countryFlags: ['🇦🇺', '🇬🇧'],
+      specializations: [
+        'Parent Visas (Onshore & Offshore)',
+        'Employer-Sponsored Visas',
+        'Family Migration Pathways',
+        'Child & Dependent Visas',
+      ],
+      languages: ['English', 'Hindi', 'Punjabi'],
+      bio: 'Dedicated Migration Advisor specializing in onshore and offshore parent visa categories, family reunion streams, and employer-sponsored visa pathways.',
+      calendarUrl: 'https://calendly.com/legendarycareers-aradhana',
     },
   ];
 
@@ -166,8 +155,9 @@ export default function AgentsPage() {
     return matchesCountry && matchesSpec && matchesSearch;
   });
 
-  const handleOpenBookModal = (agentName?: string) => {
+  const handleOpenBookModal = (agentName?: string, calendarUrl?: string) => {
     setSelectedAgentName(agentName);
+    setSelectedAgentCalendar(calendarUrl);
     setIsModalOpen(true);
   };
 
@@ -178,14 +168,14 @@ export default function AgentsPage() {
         <Navbar onOpenConsultation={() => handleOpenBookModal()} />
 
         {/* Hero Banner Section */}
-        <section className="relative bg-[#061D38] text-white py-16 sm:py-20 px-6 overflow-hidden">
+        <section className="relative bg-[#061D38] text-white pt-36 pb-16 sm:pb-20 px-6 overflow-hidden">
           {/* Glowing Ambient Shapes */}
           <div className="absolute top-0 right-0 w-96 h-96 bg-[#0163C8]/30 rounded-full blur-3xl pointer-events-none" />
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#96F189]/10 rounded-full blur-3xl pointer-events-none" />
 
           <div className="max-w-7xl mx-auto relative z-10 text-center space-y-6">
             <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-[#0163C8]/30 border border-[#0163C8] text-[#96F189] text-xs font-semibold tracking-wide uppercase">
-              <span>👨‍⚖️ Licensed Migration Agents & QEAC Advisors</span>
+              <span>👨‍⚖️ Registered Migration Agents & Legal Counselors</span>
             </div>
 
             <h1 className="font-heading text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight max-w-4xl mx-auto leading-tight">
@@ -193,26 +183,25 @@ export default function AgentsPage() {
             </h1>
 
             <p className="text-zinc-300 text-sm sm:text-base lg:text-lg max-w-2xl mx-auto font-normal leading-relaxed">
-              Explore our team of MARA registered agents and university counselors. Review their case history, area of expertise, and book a 1-on-1 consultation directly.
+              Connect directly with MARA registered migration agents and specialist counselors for personalized visa strategies, university admissions, and tribunal appeals.
             </p>
 
-            {/* Search Input */}
-            <div className="max-w-xl mx-auto pt-4">
-              <div className="relative">
+            {/* Quick Search Input */}
+            <div className="max-w-xl mx-auto pt-2">
+              <div className="relative flex items-center">
                 <input
                   type="text"
+                  placeholder="Search by agent name, visa subclass (e.g. 189, 485), or language..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder="Search by agent name, skill (e.g. 189 PR, ACS, SOP), or language..."
-                  className="w-full pl-12 pr-4 py-3.5 rounded-2xl bg-white/10 backdrop-blur-md border border-[#C2DAF3]/40 text-white placeholder-zinc-400 focus:outline-none focus:border-[#96F189] text-xs sm:text-sm transition-all"
+                  className="w-full px-5 py-4 rounded-2xl bg-white/10 border border-white/20 text-white placeholder-zinc-400 text-xs sm:text-sm focus:outline-none focus:border-[#96F189] focus:bg-[#061D38] transition-all backdrop-blur-md"
                 />
-                <span className="absolute left-4 top-3.5 text-lg">🔍</span>
                 {searchQuery && (
                   <button
                     onClick={() => setSearchQuery('')}
-                    className="absolute right-4 top-3.5 text-xs text-zinc-400 hover:text-white"
+                    className="absolute right-4 text-xs text-zinc-400 hover:text-white font-bold"
                   >
-                    Clear
+                    ✕
                   </button>
                 )}
               </div>
@@ -220,33 +209,25 @@ export default function AgentsPage() {
           </div>
         </section>
 
-        {/* Filter Controls Bar */}
-        <section className="sticky top-[73px] z-30 bg-white/95 backdrop-blur-md border-b border-[#C2DAF3] py-4 px-6 shadow-sm">
-          <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4">
-            {/* Country Filters - Touch Scrollable on Mobile */}
-            <div className="flex items-center space-x-2 overflow-x-auto pb-2 md:pb-0 scrollbar-none">
-              <span className="text-xs font-bold text-zinc-500 uppercase tracking-wider whitespace-nowrap mr-2">
-                Country:
+        {/* Filter Navigation Bar */}
+        <section className="bg-white border-b border-[#C2DAF3] py-4 px-4 sm:px-6 sticky top-[98px] z-30 shadow-xs">
+          <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            {/* Destination Country Filter Buttons */}
+            <div className="flex items-center space-x-2 overflow-x-auto w-full sm:w-auto pb-2 sm:pb-0 scrollbar-none">
+              <span className="text-xs font-bold text-zinc-500 uppercase tracking-wider whitespace-nowrap mr-1">
+                Destination:
               </span>
-              {[
-                { label: 'All 🌍', value: 'All' },
-                { label: 'Australia 🇦🇺', value: 'Australia' },
-                { label: 'Canada 🇨🇦', value: 'Canada' },
-                { label: 'UK 🇬🇧', value: 'United Kingdom' },
-                { label: 'USA 🇺🇸', value: 'United States' },
-                { label: 'Germany 🇩🇪', value: 'Germany' },
-                { label: 'New Zealand 🇳🇿', value: 'New Zealand' },
-              ].map((c) => (
+              {['All', 'Australia', 'Canada', 'United Kingdom', 'New Zealand'].map((country) => (
                 <button
-                  key={c.value}
-                  onClick={() => setSelectedCountryFilter(c.value)}
-                  className={`px-3.5 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition-all cursor-pointer ${
-                    selectedCountryFilter === c.value
-                      ? 'bg-[#0163C8] text-white shadow-md shadow-[#0163C8]/20'
-                      : 'bg-[#F4F8FC] text-[#061D38] hover:bg-[#C2DAF3]/40 border border-[#C2DAF3]/60'
+                  key={country}
+                  onClick={() => setSelectedCountryFilter(country)}
+                  className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all whitespace-nowrap cursor-pointer ${
+                    selectedCountryFilter === country
+                      ? 'bg-[#0163C8] text-white shadow-md'
+                      : 'bg-[#F4F8FC] text-[#061D38] hover:bg-[#C2DAF3]/50'
                   }`}
                 >
-                  {c.label}
+                  {country}
                 </button>
               ))}
             </div>
@@ -263,10 +244,10 @@ export default function AgentsPage() {
               >
                 <option value="All">All Specializations</option>
                 <option value="Skilled">General Skilled PR (189/190/491)</option>
-                <option value="Admissions">University Admissions & SOP</option>
-                <option value="Assessment">Skills Assessment (ACS/VETASSESS)</option>
-                <option value="Appeals">AAT Refusal Appeals</option>
-                <option value="Partner">Partner & Family Visas</option>
+                <option value="Graduate">Student & 485 Visas</option>
+                <option value="ART">ART / AAT Refusal Appeals</option>
+                <option value="Employer">Employer Sponsorship (482/186)</option>
+                <option value="Parent">Parent & Family Visas</option>
               </select>
             </div>
           </div>
@@ -276,7 +257,7 @@ export default function AgentsPage() {
         <section className="py-12 px-4 sm:px-6 max-w-7xl mx-auto space-y-8">
           <div className="flex justify-between items-center text-xs text-zinc-600 font-semibold px-2">
             <div>
-              Showing <span className="text-[#0163C8] font-bold">{filteredAgents.length}</span> verified advisors
+              Showing <span className="text-[#0163C8] font-bold">{filteredAgents.length}</span> registered advisors
             </div>
             {(selectedCountryFilter !== 'All' || selectedSpecFilter !== 'All' || searchQuery !== '') && (
               <button
@@ -311,137 +292,101 @@ export default function AgentsPage() {
               </button>
             </div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-              {filteredAgents.map((agent) => {
-                const isExpanded = expandedAgentId === agent.id;
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 sm:gap-8">
+              {filteredAgents.map((agent) => (
+                <div
+                  key={agent.id}
+                  className="bg-white rounded-3xl border border-[#C2DAF3] shadow-md hover:shadow-2xl hover:border-[#0163C8]/50 transition-all duration-300 flex flex-col justify-between overflow-hidden group"
+                >
+                  {/* Top Image Banner & Online Badge */}
+                  <div className="relative h-64 overflow-hidden bg-[#061D38]">
+                    <img
+                      src={agent.image}
+                      alt={agent.name}
+                      className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#061D38] via-transparent to-transparent opacity-80" />
 
-                return (
-                  <div
-                    key={agent.id}
-                    className="bg-white rounded-3xl border border-[#C2DAF3] shadow-md hover:shadow-2xl hover:border-[#0163C8]/50 transition-all duration-300 flex flex-col justify-between overflow-hidden group"
-                  >
-                    {/* Top Image Banner & Online Badge */}
-                    <div className="relative h-64 overflow-hidden bg-[#061D38]">
-                      <img
-                        src={agent.image}
-                        alt={agent.name}
-                        className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#061D38] via-transparent to-transparent opacity-80" />
+                    {/* Real-time Availability Badge (Connected to Calendar) */}
+                    <span className="absolute top-4 left-4 inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-white/95 backdrop-blur-md text-[#061D38] text-[11px] font-bold shadow-sm">
+                      <span className="w-2 h-2 rounded-full bg-[#96F189] animate-pulse" />
+                      <span>{dynamicAvailability}</span>
+                    </span>
 
-                      {/* Status Badge */}
-                      <span className="absolute top-4 left-4 inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md text-[#061D38] text-[11px] font-bold shadow-sm">
-                        <span className="w-2 h-2 rounded-full bg-[#96F189] animate-pulse" />
-                        <span>{agent.availability}</span>
-                      </span>
-
-                      {/* Country Flags Overlay */}
-                      <div className="absolute top-4 right-4 flex space-x-1 bg-white/90 backdrop-blur-md px-2 py-1 rounded-full text-base shadow-sm">
-                        {agent.countryFlags.map((flag, idx) => (
-                          <span key={idx} title={agent.countries[idx]}>
-                            {flag}
-                          </span>
-                        ))}
-                      </div>
-
-                      {/* License Tag on Image Bottom */}
-                      <div className="absolute bottom-3 left-4 right-4 flex justify-between items-end text-white">
-                        <div>
-                          <span className="px-2.5 py-0.5 rounded bg-[#0163C8] text-[#96F189] text-[10px] font-bold uppercase tracking-wider">
-                            {agent.license}
-                          </span>
-                        </div>
-                        <div className="flex items-center text-xs font-bold bg-[#061D38]/80 backdrop-blur-sm px-2.5 py-1 rounded-lg border border-white/20">
-                          <span className="text-amber-400 mr-1">★</span>
-                          <span>{agent.rating}</span>
-                          <span className="text-zinc-400 text-[10px] ml-1">({agent.reviewsCount})</span>
-                        </div>
-                      </div>
+                    {/* Country Flags Overlay */}
+                    <div className="absolute top-4 right-4 flex space-x-1 bg-white/90 backdrop-blur-md px-2 py-1 rounded-full text-base shadow-sm">
+                      {agent.countryFlags.map((flag, idx) => (
+                        <span key={idx} title={agent.countries[idx]}>
+                          {flag}
+                        </span>
+                      ))}
                     </div>
 
-                    {/* Card Content Body */}
-                    <div className="p-6 space-y-4 flex-1 flex flex-col justify-between">
-                      <div className="space-y-3">
-                        <div>
-                          <h3 className="font-heading font-bold text-xl text-[#061D38] group-hover:text-[#0163C8] transition-colors">
-                            {agent.name}
-                          </h3>
-                          <p className="text-xs font-semibold text-[#0163C8] mt-0.5">{agent.title}</p>
-                        </div>
-
-                        {/* Track Record Stats Grid */}
-                        <div className="grid grid-cols-3 gap-2 py-2.5 px-3 bg-[#F4F8FC] rounded-2xl border border-[#C2DAF3]/60 text-center">
-                          <div>
-                            <div className="text-xs font-bold text-[#061D38]">{agent.casesSolved}+</div>
-                            <div className="text-[10px] text-zinc-500 font-medium">Cases Solved</div>
-                          </div>
-                          <div className="border-x border-[#C2DAF3]/80">
-                            <div className="text-xs font-bold text-[#061D38]">{agent.experienceYears} Yrs</div>
-                            <div className="text-[10px] text-zinc-500 font-medium">Experience</div>
-                          </div>
-                          <div>
-                            <div className="text-xs font-bold text-[#96F189] bg-[#061D38] rounded px-1 inline-block">
-                              {agent.successRate}
-                            </div>
-                            <div className="text-[10px] text-zinc-500 font-medium mt-0.5">Success</div>
-                          </div>
-                        </div>
-
-                        {/* Specializations Badges */}
-                        <div className="space-y-1.5">
-                          <div className="text-[10px] font-bold text-zinc-400 uppercase tracking-wider">
-                            Area of Expertise:
-                          </div>
-                          <div className="flex flex-wrap gap-1.5">
-                            {agent.specializations.map((spec, idx) => (
-                              <span
-                                key={idx}
-                                className="px-2.5 py-1 rounded-lg bg-[#C2DAF3]/30 text-[#061D38] text-[11px] font-semibold border border-[#C2DAF3]/60"
-                              >
-                                {spec}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
-
-                        {/* Spoken Languages */}
-                        <div className="flex items-center space-x-2 text-xs text-zinc-600 pt-1">
-                          <span className="font-bold text-[11px] text-zinc-400 uppercase">Languages:</span>
-                          <span className="font-medium text-[#061D38]">{agent.languages.join(', ')}</span>
-                        </div>
-
-                        {/* Bio summary */}
-                        <p className="text-xs text-zinc-600 leading-relaxed line-clamp-2">{agent.bio}</p>
-
-                        {/* Expandable Case Highlight */}
-                        {isExpanded && (
-                          <div className="pt-2 text-xs bg-[#061D38] text-white p-3 rounded-2xl space-y-1 animate-fadeIn">
-                            <div className="text-[#96F189] font-bold text-[10px] uppercase">Recent Case Highlight:</div>
-                            <p className="text-zinc-200 text-[11px] leading-relaxed">{agent.recentSuccess}</p>
-                          </div>
-                        )}
+                    {/* License Tag on Image Bottom */}
+                    <div className="absolute bottom-3 left-4 right-4 flex justify-between items-end text-white">
+                      <div>
+                        <span className="px-3 py-1 rounded-full bg-[#0163C8] text-[#96F189] text-[11px] font-bold uppercase tracking-wider shadow-sm border border-[#0163C8]">
+                          {agent.license}
+                        </span>
                       </div>
-
-                      {/* Card Action Buttons */}
-                      <div className="pt-3 space-y-2">
-                        <button
-                          onClick={() => setExpandedAgentId(isExpanded ? null : agent.id)}
-                          className="w-full text-center text-[11px] font-semibold text-[#0163C8] hover:text-[#061D38] py-1 cursor-pointer"
-                        >
-                          {isExpanded ? '▲ Hide Case Highlight' : '▼ View Recent Success Story'}
-                        </button>
-
-                        <button
-                          onClick={() => handleOpenBookModal(agent.name)}
-                          className="w-full py-3 rounded-xl bg-[#0163C8] text-white font-semibold text-xs uppercase tracking-wider hover:bg-[#061D38] hover:shadow-lg shadow-[#0163C8]/20 transition-all duration-300 flex items-center justify-center space-x-2 cursor-pointer"
-                        >
-                          <span>📅 Book Appointment</span>
-                        </button>
+                      <div className="flex items-center text-xs font-bold bg-[#061D38]/80 backdrop-blur-sm px-2.5 py-1 rounded-lg border border-white/20">
+                        <span className="text-amber-400 mr-1">★</span>
+                        <span>{agent.rating}</span>
+                        <span className="text-zinc-400 text-[10px] ml-1">({agent.reviewsCount} reviews)</span>
                       </div>
                     </div>
                   </div>
-                );
-              })}
+
+                  {/* Card Content Body */}
+                  <div className="p-6 space-y-5 flex-1 flex flex-col justify-between">
+                    <div className="space-y-4">
+                      <div>
+                        <h3 className="font-heading font-bold text-2xl text-[#061D38] group-hover:text-[#0163C8] transition-colors">
+                          {agent.name}
+                        </h3>
+                        <p className="text-xs font-bold text-[#0163C8] mt-0.5">{agent.title}</p>
+                        <p className="text-[11px] font-medium text-zinc-500 mt-0.5">{agent.status}</p>
+                      </div>
+
+                      {/* Specializations Badges */}
+                      <div className="space-y-1.5">
+                        <div className="text-[10px] font-bold text-zinc-400 uppercase tracking-wider">
+                          Areas of Expertise:
+                        </div>
+                        <div className="flex flex-wrap gap-1.5">
+                          {agent.specializations.map((spec, idx) => (
+                            <span
+                              key={idx}
+                              className="px-2.5 py-1 rounded-lg bg-[#C2DAF3]/30 text-[#061D38] text-[11px] font-semibold border border-[#C2DAF3]/60"
+                            >
+                              {spec}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Spoken Languages */}
+                      <div className="flex items-center space-x-2 text-xs text-zinc-600">
+                        <span className="font-bold text-[11px] text-zinc-400 uppercase">Languages:</span>
+                        <span className="font-semibold text-[#061D38]">{agent.languages.join(', ')}</span>
+                      </div>
+
+                      {/* Bio summary */}
+                      <p className="text-xs text-zinc-600 leading-relaxed font-normal">{agent.bio}</p>
+                    </div>
+
+                    {/* Card Action Button */}
+                    <div className="pt-3">
+                      <button
+                        onClick={() => handleOpenBookModal(agent.name, agent.calendarUrl)}
+                        className="w-full py-3.5 rounded-xl bg-[#0163C8] text-white font-bold text-xs uppercase tracking-wider hover:bg-[#061D38] hover:shadow-lg shadow-[#0163C8]/20 transition-all duration-300 flex items-center justify-center space-x-2 cursor-pointer"
+                      >
+                        <span>📅 Book Consultation on Calendar</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
           )}
         </section>
@@ -450,7 +395,7 @@ export default function AgentsPage() {
         <section className="py-16 bg-[#061D38] text-white px-6">
           <div className="max-w-5xl mx-auto rounded-3xl bg-[#0b284c] border border-[#0163C8] p-8 sm:p-12 text-center space-y-6 relative overflow-hidden">
             <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-[#0163C8]/40 border border-[#0163C8] text-[#96F189] text-xs font-bold uppercase">
-              <span>🛡️ 100% MARA Registered & Verified</span>
+              <span>🛡️ 100% MARA Registered & Compliant</span>
             </div>
             <h2 className="font-heading text-2xl sm:text-4xl font-bold">
               Verify Any Agent on the Official Australian Register
@@ -481,6 +426,7 @@ export default function AgentsPage() {
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         selectedAgent={selectedAgentName}
+        calendarUrl={selectedAgentCalendar}
       />
     </div>
   );

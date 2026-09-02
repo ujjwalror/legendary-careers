@@ -43,25 +43,32 @@ export default function AboutPage() {
 
   const leadershipTeam = [
     {
-      name: 'Alexander Wright',
-      role: 'Principal Registered Migration Agent (MARN: 1804921)',
-      bio: 'Over 16 years specializing in Australian GSM (189/190/491) and Employer Sponsored Visas.',
+      name: 'Mohit Kharbanda',
+      role: 'Registered Migration Agent (MARN: 2318016)',
+      bio: 'Registered Migration Agent specializing in Australian migration pathways, skilled migration, student visas, and strategic permanent residency planning.',
       image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&q=80',
-      badge: 'MARA Agent',
+      badge: 'MARN 2318016',
     },
     {
-      name: 'Sophia Patel',
-      role: 'Director of Global Admissions (QEAC Certified)',
-      bio: 'Helped 5,000+ students secure placements across Group of Eight (Go8) & Russell Group universities.',
+      name: 'Eve (Gaurav Tyagi)',
+      role: 'Registered Migration Agent (MARN: 2619403)',
+      bio: 'Registered Migration Agent focusing on student visa admissions, Subclass 485 temporary graduate pathways, and strategic Australian permanent residency guidance.',
       image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80',
-      badge: 'QEAC Qualified',
+      badge: 'MARN 2619403',
     },
     {
-      name: 'Marcus Vance',
-      role: 'Head of Skill Assessments & Appeals',
-      bio: 'Ex-Department Officer expert in ACS, VETASSESS, Engineers Australia assessments & AAT appeals.',
+      name: 'Randhir Dhundoo',
+      role: 'ART & Complex Migration Specialist',
+      bio: 'Experienced Migration Specialist focusing on Administrative Review Tribunal (ART) representation, complex employer-sponsored visa applications, and corporate labour agreements.',
       image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=400&q=80',
-      badge: 'Appeals Specialist',
+      badge: 'ART Specialist',
+    },
+    {
+      name: 'Aradhana Sethi',
+      role: 'Parent & Employer Sponsored Visa Advisor',
+      bio: 'Dedicated Migration Advisor specializing in onshore and offshore parent visa categories, family reunion streams, and employer-sponsored visa pathways.',
+      image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=400&q=80',
+      badge: 'Parent Visa Advisor',
     },
   ];
 
@@ -72,7 +79,7 @@ export default function AboutPage() {
         <Navbar onOpenConsultation={handleOpenConsultation} />
 
         {/* Hero Section */}
-        <section className="relative bg-[#061D38] text-white py-20 px-6 overflow-hidden">
+        <section className="relative bg-[#061D38] text-white pt-36 pb-20 px-6 overflow-hidden">
           {/* Subtle Ambient Background Gradients */}
           <div className="absolute top-0 right-0 w-96 h-96 bg-[#0163C8]/30 rounded-full blur-3xl pointer-events-none" />
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#96F189]/10 rounded-full blur-3xl pointer-events-none" />
