@@ -21,6 +21,7 @@ interface Agent {
   languages: string[];
   bio: string;
   calendarUrl: string;
+  zohoStaffId?: string;
 }
 
 export default function AgentsPage() {
@@ -31,13 +32,14 @@ export default function AgentsPage() {
   const [selectedAgentName, setSelectedAgentName] = useState<string | undefined>(undefined);
   const [selectedAgentCalendar, setSelectedAgentCalendar] = useState<string | undefined>(undefined);
 
-  // Dynamic Real-Time Availability Helper based on system date & business hours
+  // Live Agent Availabilities State (Fetched from Zoho API)
+  const [agentAvailabilities, setAgentAvailabilities] = useState<Record<string, string>>({});
   const [dynamicAvailability, setDynamicAvailability] = useState('Available Today');
 
   useEffect(() => {
     const calculateAvailability = () => {
       const now = new Date();
-      const day = now.getDay(); // 0 is Sunday, 6 is Saturday
+      const day = now.getDay();
       const hour = now.getHours();
 
       if (day === 0) return 'Available Tomorrow (Mon)';
@@ -46,7 +48,28 @@ export default function AgentsPage() {
       return 'Available Today';
     };
 
-    setDynamicAvailability(calculateAvailability());
+    const fallbackText = calculateAvailability();
+    setDynamicAvailability(fallbackText);
+
+    // Fetch live Zoho availability for each staff member
+    agents.forEach(async (agent) => {
+      if (agent.zohoStaffId) {
+        try {
+          const res = await fetch(`/api/zoho-availability?staffId=${agent.zohoStaffId}`);
+          if (res.ok) {
+            const data = await res.json();
+            if (data.availability) {
+              setAgentAvailabilities((prev) => ({
+                ...prev,
+                [agent.id]: data.availability,
+              }));
+            }
+          }
+        } catch (err) {
+          // Gracefully retain schedule fallback
+        }
+      }
+    });
   }, []);
 
   // Compliant Team Members List (Zero success percentages / cases solved numbers)
@@ -72,6 +95,7 @@ export default function AgentsPage() {
       languages: ['English', 'Hindi', 'Punjabi'],
       bio: 'Registered Migration Agent specializing in Australian migration pathways, skilled migration, student visas, and strategic permanent residency planning.',
       calendarUrl: 'https://legendarycareers.zohobookings.com.au/portal-embed#/18126000001741116',
+      zohoStaffId: '18126000001741116',
     },
     {
       id: 'eve-gaurav-tyagi',
@@ -94,6 +118,7 @@ export default function AgentsPage() {
       languages: ['Hindi', 'English'],
       bio: 'Registered Migration Agent focusing on student visa admissions, Subclass 485 temporary graduate pathways, and strategic Australian permanent residency guidance.',
       calendarUrl: 'https://legendarycareers.zohobookings.com.au/portal-embed#/18126000001743030',
+      zohoStaffId: '18126000001743030',
     },
     {
       id: 'randhir-dhundoo',
@@ -136,6 +161,7 @@ export default function AgentsPage() {
       languages: ['English', 'Hindi', 'Punjabi'],
       bio: 'Dedicated Migration Advisor specializing in onshore and offshore parent visa categories, family reunion streams, and employer-sponsored visa pathways.',
       calendarUrl: 'https://legendarycareers.zohobookings.com.au/portal-embed#/18126000001743075',
+      zohoStaffId: '18126000001743075',
     },
   ];
 
@@ -310,7 +336,7 @@ export default function AgentsPage() {
                     {/* Real-time Availability Badge (Connected to Calendar) */}
                     <span className="absolute top-4 left-4 inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-white/95 backdrop-blur-md text-[#061D38] text-[11px] font-bold shadow-sm">
                       <span className="w-2 h-2 rounded-full bg-[#96F189] animate-pulse" />
-                      <span>{dynamicAvailability}</span>
+                      <span>{agentAvailabilities[agent.id] || dynamicAvailability}</span>
                     </span>
 
                     {/* Country Flags Overlay */}
