@@ -13,7 +13,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
   return (
     <nav className="fixed top-0 left-0 right-0 w-full z-40 bg-white/95 backdrop-blur-md border-b border-[#C2DAF3]/60 shadow-sm">
       {/* Top Announcement Bar */}
-      <div className="bg-[#061D38] text-white text-xs font-body py-2 px-6 flex justify-between items-center">
+      <div className="bg-[#061D38] text-white text-xs font-body py-2 px-6 flex justify-center sm:justify-between items-center">
         <div className="flex items-center space-x-6">
           <span className="flex items-center space-x-1.5">
             <span className="w-2 h-2 rounded-full bg-[#96F189] animate-pulse" />
@@ -25,7 +25,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
           </span>
         </div>
 
-        <div className="flex items-center space-x-4">
+        <div className="hidden sm:flex items-center space-x-4">
           <a href="tel:+61489085855" className="hover:text-[#96F189] transition-colors">
             📞 +61 489 085 855
           </a>

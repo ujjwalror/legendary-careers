@@ -100,7 +100,7 @@ export const ImageSequenceHero: React.FC<HeroProps> = ({
             {/* MILESTONE 1 (0% - 22% Scroll Progress) */}
             {/* ========================================================================= */}
             <div
-              className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center space-y-6 transition-all duration-700 ease-out will-change-[transform,opacity]"
+              className="absolute inset-0 flex flex-col items-center justify-center pt-24 sm:pt-6 p-4 sm:p-6 text-center space-y-3.5 sm:space-y-6 transition-all duration-700 ease-out will-change-[transform,opacity]"
               style={{
                 opacity: opacityPhase1,
                 transform: `translateY(${(1 - opacityPhase1) * 16}px) scale(${0.96 + opacityPhase1 * 0.04})`,
@@ -109,7 +109,7 @@ export const ImageSequenceHero: React.FC<HeroProps> = ({
             >
 
               {/* Primary Times New Roman Heading */}
-              <h1 className="font-heading font-extrabold text-3xl sm:text-5xl lg:text-6xl text-white leading-tight tracking-tight drop-shadow-lg">
+              <h1 className="font-heading font-extrabold text-2xl sm:text-5xl lg:text-6xl text-white leading-tight tracking-tight drop-shadow-lg">
                 Your Gateway to Global Education &{' '}
                 <span className="text-[#96F189] underline decoration-[#0163C8] decoration-4 underline-offset-8">
                   Migration Pathways
@@ -117,16 +117,16 @@ export const ImageSequenceHero: React.FC<HeroProps> = ({
               </h1>
 
               {/* Body Subtitle */}
-              <p className="font-body text-zinc-200 text-sm sm:text-lg leading-relaxed max-w-2xl mx-auto font-normal drop-shadow">
+              <p className="font-body text-zinc-200 text-xs sm:text-lg leading-relaxed max-w-2xl mx-auto font-normal drop-shadow">
                 Navigate university admissions, visa applications, and skilled migration pathways with end-to-end expert guidance.
               </p>
 
               {/* Popular Study Destination Chips */}
-              <div className="space-y-2 pt-2">
-                <span className="block text-[11px] font-bold uppercase tracking-widest text-[#96F189]/90">
+              <div className="space-y-1.5 sm:space-y-2 pt-1 sm:pt-2">
+                <span className="block text-[10px] sm:text-[11px] font-bold uppercase tracking-widest text-[#96F189]/90">
                   Popular Study Destinations:
                 </span>
-                <div className="flex flex-wrap justify-center gap-2">
+                <div className="flex flex-wrap justify-center gap-1.5 sm:gap-2">
                   {[
                     { name: 'Australia 🇦🇺', code: 'australia' },
                     { name: 'Canada 🇨🇦', code: 'canada' },
@@ -138,7 +138,7 @@ export const ImageSequenceHero: React.FC<HeroProps> = ({
                     <button
                       key={c.code}
                       onClick={() => onSelectCountry(c.code)}
-                      className="px-3.5 py-1.5 rounded-xl bg-white/10 hover:bg-[#0163C8] border border-white/20 hover:border-[#96F189] text-white text-xs font-semibold backdrop-blur-md transition-all cursor-pointer hover:scale-105"
+                      className="px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-xl bg-white/10 hover:bg-[#0163C8] border border-white/20 hover:border-[#96F189] text-white text-[11px] sm:text-xs font-semibold backdrop-blur-md transition-all cursor-pointer hover:scale-105"
                     >
                       {c.name}
                     </button>
@@ -147,16 +147,16 @@ export const ImageSequenceHero: React.FC<HeroProps> = ({
               </div>
 
               {/* CTA Action Buttons */}
-              <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+              <div className="pt-2 sm:pt-4 flex flex-col sm:flex-row items-center justify-center gap-2.5 sm:gap-4 w-full sm:w-auto">
                 <button
                   onClick={onOpenConsultation}
-                  className="w-full sm:w-auto px-8 py-4 rounded-full bg-[#0163C8] text-white font-bold text-xs uppercase tracking-wider hover:bg-white hover:text-[#061D38] shadow-xl shadow-[#0163C8]/40 transition-all duration-300 transform hover:-translate-y-0.5 cursor-pointer"
+                  className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 rounded-full bg-[#0163C8] text-white font-bold text-xs uppercase tracking-wider hover:bg-white hover:text-[#061D38] shadow-xl shadow-[#0163C8]/40 transition-all duration-300 transform hover:-translate-y-0.5 cursor-pointer"
                 >
                   Book Free Visa Assessment
                 </button>
                 <a
                   href="#assessment"
-                  className="w-full sm:w-auto px-8 py-4 rounded-full bg-[#96F189] text-[#061D38] font-bold text-xs uppercase tracking-wider hover:bg-white border border-[#96F189] shadow-lg transition-all duration-300 cursor-pointer"
+                  className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 rounded-full bg-[#96F189] text-[#061D38] font-bold text-xs uppercase tracking-wider hover:bg-white border border-[#96F189] shadow-lg transition-all duration-300 cursor-pointer"
                 >
                   Check Visa Eligibility →
                 </a>
@@ -167,46 +167,46 @@ export const ImageSequenceHero: React.FC<HeroProps> = ({
             {/* MILESTONE 2 (25% - 48% Scroll Progress) - A WINDOW TO UNBOUNDED OPPORTUNITIES */}
             {/* ========================================================================= */}
             <div
-              className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center space-y-6 transition-all duration-700 ease-out will-change-[transform,opacity]"
+              className="absolute inset-0 flex flex-col items-center justify-center pt-24 sm:pt-6 p-4 sm:p-6 text-center space-y-3.5 sm:space-y-6 transition-all duration-700 ease-out will-change-[transform,opacity]"
               style={{
                 opacity: opacityPhase2,
                 transform: `translateY(${(1 - opacityPhase2) * 16}px) scale(${0.96 + opacityPhase2 * 0.04})`,
                 pointerEvents: opacityPhase2 > 0.5 ? 'auto' : 'none',
               }}
             >
-              <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-[#0163C8]/40 border border-[#0163C8] text-[#96F189] text-xs font-bold uppercase tracking-wider backdrop-blur-md">
+              <div className="inline-flex items-center space-x-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#0163C8]/40 border border-[#0163C8] text-[#96F189] text-[10px] sm:text-xs font-bold uppercase tracking-wider backdrop-blur-md">
                 <span>🪟 YOUR GLOBAL HORIZON</span>
               </div>
 
-              <h2 className="font-heading font-extrabold text-3xl sm:text-5xl lg:text-6xl text-white leading-tight drop-shadow-lg">
+              <h2 className="font-heading font-extrabold text-2xl sm:text-5xl lg:text-6xl text-white leading-tight drop-shadow-lg">
                 A Window to Unbounded Opportunities
               </h2>
 
-              <p className="text-zinc-200 text-sm sm:text-lg max-w-xl mx-auto leading-relaxed drop-shadow">
+              <p className="text-zinc-200 text-xs sm:text-lg max-w-xl mx-auto leading-relaxed drop-shadow">
                 Opening doors to world-class university placements, global career growth, and international residency pathways.
               </p>
 
               {/* 4 Feature Highlights */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2 max-w-3xl mx-auto">
-                <div className="p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-center">
-                  <div className="text-xl mb-1">🇦🇺</div>
-                  <div className="font-bold text-xs text-white">Australia</div>
-                  <div className="text-[10px] text-zinc-300 mt-0.5">Subclass 500 & PR</div>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 pt-1 sm:pt-2 max-w-3xl mx-auto">
+                <div className="p-2.5 sm:p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-center">
+                  <div className="text-lg sm:text-xl mb-0.5 sm:mb-1">🇦🇺</div>
+                  <div className="font-bold text-[11px] sm:text-xs text-white">Australia</div>
+                  <div className="text-[9px] sm:text-[10px] text-zinc-300 mt-0.5">Subclass 500 & PR</div>
                 </div>
-                <div className="p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-center">
-                  <div className="text-xl mb-1">🇨🇦</div>
-                  <div className="font-bold text-xs text-white">Canada</div>
-                  <div className="text-[10px] text-zinc-300 mt-0.5">PGWP & Express Entry</div>
+                <div className="p-2.5 sm:p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-center">
+                  <div className="text-lg sm:text-xl mb-0.5 sm:mb-1">🇨🇦</div>
+                  <div className="font-bold text-[11px] sm:text-xs text-white">Canada</div>
+                  <div className="text-[9px] sm:text-[10px] text-zinc-300 mt-0.5">PGWP & Express Entry</div>
                 </div>
-                <div className="p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-center">
-                  <div className="text-xl mb-1">🇬🇧</div>
-                  <div className="font-bold text-xs text-white">United Kingdom</div>
-                  <div className="text-[10px] text-zinc-300 mt-0.5">CAS & Scholarships</div>
+                <div className="p-2.5 sm:p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-center">
+                  <div className="text-lg sm:text-xl mb-0.5 sm:mb-1">🇬🇧</div>
+                  <div className="font-bold text-[11px] sm:text-xs text-white">United Kingdom</div>
+                  <div className="text-[9px] sm:text-[10px] text-zinc-300 mt-0.5">CAS & Scholarships</div>
                 </div>
-                <div className="p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-center">
-                  <div className="text-xl mb-1">🇩🇪</div>
-                  <div className="font-bold text-xs text-white">Germany</div>
-                  <div className="text-[10px] text-zinc-300 mt-0.5">Tuition-Free Master</div>
+                <div className="p-2.5 sm:p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-center">
+                  <div className="text-lg sm:text-xl mb-0.5 sm:mb-1">🇩🇪</div>
+                  <div className="font-bold text-[11px] sm:text-xs text-white">Germany</div>
+                  <div className="text-[9px] sm:text-[10px] text-zinc-300 mt-0.5">Tuition-Free Master</div>
                 </div>
               </div>
             </div>
@@ -215,41 +215,41 @@ export const ImageSequenceHero: React.FC<HeroProps> = ({
             {/* MILESTONE 3 (50% - 73% Scroll Progress) - MARA COMPLIANT (NO PERCENTAGES) */}
             {/* ========================================================================= */}
             <div
-              className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center space-y-6 transition-all duration-700 ease-out will-change-[transform,opacity]"
+              className="absolute inset-0 flex flex-col items-center justify-center pt-24 sm:pt-6 p-4 sm:p-6 text-center space-y-3.5 sm:space-y-6 transition-all duration-700 ease-out will-change-[transform,opacity]"
               style={{
                 opacity: opacityPhase3,
                 transform: `translateY(${(1 - opacityPhase3) * 16}px) scale(${0.96 + opacityPhase3 * 0.04})`,
                 pointerEvents: opacityPhase3 > 0.5 ? 'auto' : 'none',
               }}
             >
-              <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-[#0163C8]/40 border border-[#0163C8] text-[#96F189] text-xs font-bold uppercase tracking-wider backdrop-blur-md">
+              <div className="inline-flex items-center space-x-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#0163C8]/40 border border-[#0163C8] text-[#96F189] text-[10px] sm:text-xs font-bold uppercase tracking-wider backdrop-blur-md">
                 <span>🛡️ TRUSTED MIGRATION ADVISORS</span>
               </div>
 
-              <h2 className="font-heading font-extrabold text-3xl sm:text-5xl text-white leading-tight">
+              <h2 className="font-heading font-extrabold text-2xl sm:text-5xl text-white leading-tight">
                 End-to-End Migration & Overseas Admissions Support
               </h2>
 
-              <p className="text-zinc-200 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
+              <p className="text-zinc-200 text-xs sm:text-base max-w-xl mx-auto leading-relaxed">
                 Guided directly by MARA registered agents & QEAC certified counselors specializing in skills assessments, state nominations, and student visas.
               </p>
 
-              {/* 3 Feature Highlights (Sleek Glassmorphism matching Milestone 2) */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2 max-w-2xl mx-auto">
-                <div className="p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-center">
-                  <div className="text-amber-400 text-sm mb-1 font-bold">★★★★★</div>
-                  <div className="font-bold text-xs text-white">150+ 5-Star Google Reviews</div>
-                  <div className="text-[10px] text-zinc-300 mt-0.5">Verified Client Feedback</div>
+              {/* 3 Feature Highlights (Horizontal 3-Col Layout on Mobile to Prevent Scroll Prompt Collision) */}
+              <div className="grid grid-cols-3 sm:grid-cols-3 gap-2 sm:gap-3 pt-1 sm:pt-2 max-w-2xl mx-auto w-full">
+                <div className="p-2.5 sm:p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-center">
+                  <div className="text-amber-400 text-xs sm:text-sm mb-0.5 sm:mb-1 font-bold">★★★★★</div>
+                  <div className="font-bold text-[10px] sm:text-xs text-white leading-tight">150+ 5-Star Reviews</div>
+                  <div className="text-[9px] sm:text-[10px] text-zinc-300 mt-0.5 hidden sm:block">Verified Client Feedback</div>
                 </div>
-                <div className="p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-center">
-                  <div className="text-xl mb-1">👨‍⚖️</div>
-                  <div className="font-bold text-xs text-white">MARA & QEAC</div>
-                  <div className="text-[10px] text-zinc-300 mt-0.5">Certified Advisors</div>
+                <div className="p-2.5 sm:p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-center">
+                  <div className="text-lg sm:text-xl mb-0.5 sm:mb-1">👨‍⚖️</div>
+                  <div className="font-bold text-[10px] sm:text-xs text-white leading-tight">MARA & QEAC</div>
+                  <div className="text-[9px] sm:text-[10px] text-zinc-300 mt-0.5">Certified Advisors</div>
                 </div>
-                <div className="p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-center">
-                  <div className="text-xl mb-1">📋</div>
-                  <div className="font-bold text-xs text-white">Personalized</div>
-                  <div className="text-[10px] text-zinc-300 mt-0.5">Migration Strategy</div>
+                <div className="p-2.5 sm:p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-center">
+                  <div className="text-lg sm:text-xl mb-0.5 sm:mb-1">📋</div>
+                  <div className="font-bold text-[10px] sm:text-xs text-white leading-tight">Personalized</div>
+                  <div className="text-[9px] sm:text-[10px] text-zinc-300 mt-0.5">Migration Strategy</div>
                 </div>
               </div>
             </div>
@@ -258,18 +258,18 @@ export const ImageSequenceHero: React.FC<HeroProps> = ({
             {/* MILESTONE 4 (75% - 100% Scroll Progress) */}
             {/* ========================================================================= */}
             <div
-              className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center space-y-6 transition-all duration-700 ease-out will-change-[transform,opacity]"
+              className="absolute inset-0 flex flex-col items-center justify-center pt-24 sm:pt-6 p-4 sm:p-6 text-center space-y-3.5 sm:space-y-6 transition-all duration-700 ease-out will-change-[transform,opacity]"
               style={{
                 opacity: opacityPhase4,
                 transform: `translateY(${(1 - opacityPhase4) * 16}px) scale(${0.96 + opacityPhase4 * 0.04})`,
                 pointerEvents: opacityPhase4 > 0.5 ? 'auto' : 'none',
               }}
             >
-              <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-[#0163C8]/40 border border-[#0163C8] text-[#96F189] text-xs font-bold uppercase tracking-wider backdrop-blur-md">
+              <div className="inline-flex items-center space-x-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#0163C8]/40 border border-[#0163C8] text-[#96F189] text-[10px] sm:text-xs font-bold uppercase tracking-wider backdrop-blur-md">
                 <span>⚡ START YOUR JOURNEY TODAY</span>
               </div>
 
-              <h2 className="font-heading font-extrabold text-3xl sm:text-5xl text-white leading-tight">
+              <h2 className="font-heading font-extrabold text-2xl sm:text-5xl text-white leading-tight">
                 Ready to Fast-Track Your Overseas Visa & PR?
               </h2>
 
