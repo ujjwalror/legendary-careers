@@ -107,11 +107,6 @@ export const ImageSequenceHero: React.FC<HeroProps> = ({
                 pointerEvents: opacityPhase1 > 0.5 ? 'auto' : 'none',
               }}
             >
-              {/* Trust Badge */}
-              <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-[#0163C8]/40 border border-[#0163C8] text-[#96F189] text-xs font-bold uppercase tracking-wider backdrop-blur-md">
-                <span className="w-2.5 h-2.5 rounded-full bg-[#96F189] animate-pulse" />
-                <span>MARA & QEAC CERTIFIED SPECIALISTS</span>
-              </div>
 
               {/* Primary Times New Roman Heading */}
               <h1 className="font-heading font-extrabold text-3xl sm:text-5xl lg:text-6xl text-white leading-tight tracking-tight drop-shadow-lg">
