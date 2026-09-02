@@ -147,7 +147,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
           <Link
             href="/financial-calculator"
             onClick={() => setMobileMenuOpen(false)}
-            className="block py-2 text-[#0163C8] font-semibold"
+            className="block py-2 text-[#061D38] hover:text-[#0163C8]"
           >
             Financial Calculator
           </Link>
