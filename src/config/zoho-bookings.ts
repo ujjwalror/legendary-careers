@@ -32,7 +32,7 @@ export const ZOHO_BOOKINGS_CONFIG: {
     },
     'aradhana-sethi': {
       name: 'Aradhana Sethi',
-      marn: 'Registered Migration Advisor',
+      marn: 'MARN 2318040',
       zohoUrl: 'https://legendarycareers.zohobookings.com.au/portal-embed#/18126000001743075',
     },
   },

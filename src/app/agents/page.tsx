@@ -119,9 +119,9 @@ export default function AgentsPage() {
     {
       id: 'aradhana-sethi',
       name: 'Aradhana Sethi',
-      title: 'Parent & Employer Sponsored Visa Advisor',
-      license: 'Registered Migration Advisor',
-      status: 'Active Registered Advisor',
+      title: 'Registered Migration Agent',
+      license: 'MARN #2318040',
+      status: 'Registered Agent (MARN #2318040)',
       image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=500&q=80',
       rating: 5.0,
       reviewsCount: 135,

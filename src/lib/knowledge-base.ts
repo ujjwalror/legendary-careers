@@ -55,7 +55,7 @@ export const websiteKnowledge = {
     },
     {
       name: 'Aradhana Sethi',
-      title: 'Parent & Employer Sponsored Visa Advisor',
+      title: 'Registered Migration Agent (MARN: 2318040)',
       specialty: 'Parent Visas (Onshore & Offshore), Employer-Sponsored Visas',
       languages: 'English, Hindi, Punjabi',
     },

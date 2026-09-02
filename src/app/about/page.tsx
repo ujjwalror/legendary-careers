@@ -65,10 +65,10 @@ export default function AboutPage() {
     },
     {
       name: 'Aradhana Sethi',
-      role: 'Parent & Employer Sponsored Visa Advisor',
+      role: 'Registered Migration Agent (MARN: 2318040)',
       bio: 'Dedicated Migration Advisor specializing in onshore and offshore parent visa categories, family reunion streams, and employer-sponsored visa pathways.',
       image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=400&q=80',
-      badge: 'Parent Visa Advisor',
+      badge: 'MARN 2318040',
     },
   ];
 
