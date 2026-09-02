@@ -10,8 +10,8 @@ export const ZOHO_BOOKINGS_CONFIG: {
   mainPortalUrl: string;
   agents: Record<string, ZohoStaffConfig>;
 } = {
-  // Main company portal URL (for general booking buttons in Navbar/Hero)
-  mainPortalUrl: 'https://legendarycareers.zohobookings.com.au/portal-embed#/',
+  // Main company portal URL (for general booking buttons in Navbar/Hero defaults to Eve Gaurav Tyagi)
+  mainPortalUrl: 'https://legendarycareers.zohobookings.com.au/portal-embed#/18126000001743030',
 
   // Agent specific Zoho Bookings links
   agents: {
