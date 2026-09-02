@@ -135,7 +135,7 @@ export default function AgentsPage() {
       ],
       languages: ['English', 'Hindi', 'Punjabi'],
       bio: 'Dedicated Migration Advisor specializing in onshore and offshore parent visa categories, family reunion streams, and employer-sponsored visa pathways.',
-      calendarUrl: 'https://calendly.com/legendarycareers-aradhana',
+      calendarUrl: 'https://legendarycareers.zohobookings.com.au/portal-embed#/18126000001743075',
     },
   ];
 
