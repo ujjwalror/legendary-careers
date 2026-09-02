@@ -171,12 +171,14 @@ export default function AboutPage() {
         {/* Core Pillars / Values */}
         <section className="py-16 bg-[#061D38] text-white px-6">
           <div className="max-w-7xl mx-auto space-y-12">
-            <div className="text-center space-y-4 max-w-2xl mx-auto">
-              <span className="px-3 py-1 rounded bg-[#0163C8]/40 border border-[#0163C8] text-[#96F189] text-xs font-bold uppercase tracking-wider">
-                Why Choose Us
-              </span>
-              <h2 className="font-heading text-3xl sm:text-4xl font-bold">
-                Built on Integrity, Accuracy & High Success Rates
+            <div className="text-center max-w-2xl mx-auto space-y-6">
+              <div>
+                <span className="inline-block px-4 py-1.5 rounded-full bg-[#0163C8]/40 border border-[#0163C8] text-[#96F189] text-xs font-bold uppercase tracking-wider shadow-sm">
+                  Why Choose Us
+                </span>
+              </div>
+              <h2 className="font-heading text-3xl sm:text-4xl font-bold text-white pt-1">
+                Built on Integrity, Accuracy & Academic Excellence
               </h2>
             </div>
 
