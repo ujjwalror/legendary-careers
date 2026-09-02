@@ -93,7 +93,7 @@ export default function AgentsPage() {
       ],
       languages: ['Hindi', 'English'],
       bio: 'Registered Migration Agent focusing on student visa admissions, Subclass 485 temporary graduate pathways, and strategic Australian permanent residency guidance.',
-      calendarUrl: 'https://calendly.com/legendarycareers-eve',
+      calendarUrl: 'https://legendarycareers.zohobookings.com.au/portal-embed#/18126000001743030',
     },
     {
       id: 'randhir-dhundoo',

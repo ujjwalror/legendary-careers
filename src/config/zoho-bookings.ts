@@ -23,7 +23,7 @@ export const ZOHO_BOOKINGS_CONFIG: {
     'eve-gaurav-tyagi': {
       name: 'Eve (Gaurav Tyagi)',
       marn: 'MARN 2619403',
-      zohoUrl: 'https://legendarycareers.zohobookings.com.au/portal-embed#/eve',
+      zohoUrl: 'https://legendarycareers.zohobookings.com.au/portal-embed#/18126000001743030',
     },
     'randhir-dhundoo': {
       name: 'Randhir Dhundoo',
