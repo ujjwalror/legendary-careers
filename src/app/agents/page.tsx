@@ -71,7 +71,7 @@ export default function AgentsPage() {
       ],
       languages: ['English', 'Hindi', 'Punjabi'],
       bio: 'Registered Migration Agent specializing in Australian migration pathways, skilled migration, student visas, and strategic permanent residency planning.',
-      calendarUrl: 'https://calendly.com/legendarycareers-mohit',
+      calendarUrl: 'https://legendarycareers.zohobookings.com.au/portal-embed#/18126000001741116',
     },
     {
       id: 'eve-gaurav-tyagi',
