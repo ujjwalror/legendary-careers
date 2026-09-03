@@ -46,7 +46,7 @@ export default function AboutPage() {
       name: 'Mohit Kharbanda',
       role: 'Registered Migration Agent (MARN: 2318016)',
       bio: 'Registered Migration Agent specializing in Australian migration pathways, skilled migration, student visas, and strategic permanent residency planning.',
-      image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&q=80',
+      image: '/images/mohit-kharbanda.jpg',
       badge: 'MARN 2318016',
     },
     {

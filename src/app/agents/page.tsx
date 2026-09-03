@@ -81,7 +81,7 @@ export default function AgentsPage() {
       license: 'MARN #2318016',
       status: 'Registered Agent (Commenced 13/01/2026)',
       commencedDate: '13/01/2026',
-      image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=500&q=80',
+      image: '/images/mohit-kharbanda.jpg',
       rating: 5.0,
       reviewsCount: 148,
       countries: ['Australia', 'New Zealand'],
