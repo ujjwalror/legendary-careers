@@ -27,7 +27,7 @@ export const Footer: React.FC = () => {
             {/* Accreditations & Socials */}
             <div className="flex flex-wrap gap-2 pt-2">
               <span className="px-3 py-1 rounded bg-[#0163C8]/40 border border-[#0163C8] text-[10px] font-bold text-[#96F189] uppercase tracking-wider">
-                MARA Agent #1804921
+                MARA Registered Migration Agents
               </span>
               <span className="px-3 py-1 rounded bg-[#0163C8]/40 border border-[#0163C8] text-[10px] font-bold text-[#C2DAF3] uppercase tracking-wider">
                 QEAC Certified Counselor
