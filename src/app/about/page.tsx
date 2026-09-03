@@ -53,7 +53,7 @@ export default function AboutPage() {
       name: 'Eve (Gaurav Tyagi)',
       role: 'Registered Migration Agent (MARN: 2619403)',
       bio: 'Registered Migration Agent focusing on student visa admissions, Subclass 485 temporary graduate pathways, and strategic Australian permanent residency guidance.',
-      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80',
+      image: '/images/eve-tyagi.jpg',
       badge: 'MARN 2619403',
     },
     {

@@ -104,7 +104,7 @@ export default function AgentsPage() {
       license: 'MARN #2619403',
       status: 'Registered Agent (Commenced 12/05/2026)',
       commencedDate: '12/05/2026',
-      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=500&q=80',
+      image: '/images/eve-tyagi.jpg',
       rating: 4.9,
       reviewsCount: 162,
       countries: ['Australia'],
