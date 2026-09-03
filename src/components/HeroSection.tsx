@@ -64,7 +64,7 @@ export const HeroSection: React.FC<HeroProps> = ({ onOpenConsultation, onSelectC
               onClick={onOpenConsultation}
               className="px-8 py-4 rounded-xl bg-[#0163C8] text-white font-body font-bold text-sm uppercase tracking-wider hover:bg-[#061D38] shadow-xl shadow-[#0163C8]/25 transition-all duration-300 transform hover:-translate-y-0.5 text-center"
             >
-              Book Free Visa Assessment
+              Book Visa Assessment
             </button>
             <a
               href="#assessment"

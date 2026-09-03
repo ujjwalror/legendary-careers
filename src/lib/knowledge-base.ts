@@ -126,7 +126,7 @@ export function queryKnowledgeBase(userPrompt: string): AnswerResult {
       text: `📞 **Contact Legendary Careers:**\n\n• **Main Hotline:** +61 489 085 855\n• **Office Line:** +61 3 8612 7273\n• **Direct Mobile:** +61 412 367 020\n• **Email:** connect@legendarycareers.com.au\n• **Admissions:** info@legendarycareers.com\n\n**Hours:** Mon–Fri 10:00 am – 6:00 pm.`,
       actions: [
         { label: 'Go to Contact Page', type: 'link', target: '/contact' },
-        { label: 'Book Free Consultation', type: 'modal', target: 'consultation' },
+        { label: 'Book Consultation', type: 'modal', target: 'consultation' },
       ],
       source: 'Contact & Communication Directory',
     };
@@ -237,7 +237,7 @@ export function queryKnowledgeBase(userPrompt: string): AnswerResult {
       { label: 'Calculate Points', type: 'link', target: '/calculator' },
       { label: 'Our Agents', type: 'link', target: '/agents' },
       { label: 'Contact Us & Map', type: 'link', target: '/contact' },
-      { label: 'Book Free Consultation', type: 'modal', target: 'consultation' },
+      { label: 'Book Consultation', type: 'modal', target: 'consultation' },
     ],
     source: 'Legendary Careers Knowledge Base',
   };

@@ -152,7 +152,7 @@ export const ImageSequenceHero: React.FC<HeroProps> = ({
                   onClick={onOpenConsultation}
                   className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 rounded-full bg-[#0163C8] text-white font-bold text-xs uppercase tracking-wider hover:bg-white hover:text-[#061D38] shadow-xl shadow-[#0163C8]/40 transition-all duration-300 transform hover:-translate-y-0.5 cursor-pointer"
                 >
-                  Book Free Visa Assessment
+                  Book Visa Assessment
                 </button>
                 <a
                   href="#assessment"

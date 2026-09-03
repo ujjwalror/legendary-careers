@@ -53,12 +53,13 @@ export const ConsultationModal: React.FC<ModalProps> = ({
             {/* Header Title & Badges */}
             <div className="space-y-2 shrink-0">
               <div className="flex flex-wrap gap-2 items-center">
-                <span className="px-3 py-1 rounded-full bg-[#96F189] text-[#061D38] font-body text-[10px] font-bold uppercase tracking-wider">
-                  100% Free Consultation
-                </span>
-                {selectedAgent && (
+                {selectedAgent ? (
                   <span className="px-3 py-1 rounded-full bg-[#0163C8] text-white font-body text-[10px] font-bold uppercase tracking-wider">
                     👤 With {selectedAgent}
+                  </span>
+                ) : (
+                  <span className="px-3 py-1 rounded-full bg-[#96F189] text-[#061D38] font-body text-[10px] font-bold uppercase tracking-wider">
+                    📅 Official Booking Portal
                   </span>
                 )}
               </div>

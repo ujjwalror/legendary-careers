@@ -102,7 +102,7 @@ export default function AboutPage() {
                 onClick={handleOpenConsultation}
                 className="px-8 py-3.5 rounded-full bg-[#0163C8] text-white font-semibold text-sm uppercase tracking-wider hover:bg-[#96F189] hover:text-[#061D38] transition-all duration-300 shadow-lg shadow-[#0163C8]/30 cursor-pointer"
               >
-                Book Free Consultation
+                Book Consultation
               </button>
             </div>
           </div>

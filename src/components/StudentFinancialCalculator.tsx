@@ -333,7 +333,7 @@ export const StudentFinancialCalculator: React.FC<StudentFinancialCalculatorProp
                   onClick={() => onOpenConsultation && onOpenConsultation('Mohit Kharbanda')}
                   className="w-full py-4 rounded-2xl bg-[#96F189] text-[#061D38] font-bold text-xs uppercase tracking-wider hover:bg-white transition-all shadow-lg shadow-[#96F189]/20 cursor-pointer"
                 >
-                  📅 Book Free Financial Audit with MARA Agent →
+                  📅 Book Financial Audit with MARA Agent →
                 </button>
 
                 <a

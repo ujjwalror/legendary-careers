@@ -34,7 +34,7 @@ export const AiChatbot: React.FC = () => {
         { label: '🇦🇺 Calculate PR Points', type: 'link', target: '/calculator' },
         { label: '📍 Melbourne Office Map', type: 'link', target: '/contact' },
         { label: '👨‍⚖️ Registered Agents', type: 'link', target: '/agents' },
-        { label: '📅 Book Free Consultation', type: 'modal', target: 'consultation' },
+        { label: '📅 Book Consultation', type: 'modal', target: 'consultation' },
       ],
     },
   ]);
@@ -103,7 +103,7 @@ export const AiChatbot: React.FC = () => {
         actions: [
           { label: '🇦🇺 Calculate PR Points', type: 'link', target: '/calculator' },
           { label: '📍 Melbourne Office Map', type: 'link', target: '/contact' },
-          { label: '📅 Book Free Consultation', type: 'modal', target: 'consultation' },
+          { label: '📅 Book Consultation', type: 'modal', target: 'consultation' },
         ],
       },
     ]);
