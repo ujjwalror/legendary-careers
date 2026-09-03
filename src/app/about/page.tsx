@@ -11,11 +11,11 @@ export default function AboutPage() {
   const handleOpenConsultation = () => setIsConsultationOpen(true);
   const handleCloseConsultation = () => setIsConsultationOpen(false);
 
-  const stats = [
-    { number: '15+', label: 'Years of Excellence', icon: '🏆' },
-    { number: '12,500+', label: 'Successful Visas Granted', icon: '🎓' },
-    { number: '99.2%', label: 'Visa Approval Rate', icon: '⚡' },
-    { number: '45+', label: 'Global University Partners', icon: '🌐' },
+  const pillars = [
+    { title: 'MARA Registered', label: 'Registered Migration Counselors', icon: '⚖️' },
+    { title: 'QEAC Certified', label: 'Qualified Education Counselors', icon: '🎓' },
+    { title: 'Tailored Strategy', label: 'Custom PR & Student Visa Filing', icon: '🎯' },
+    { title: 'Ethical Standards', label: 'Strict MARA Code of Conduct', icon: '🤝' },
   ];
 
   const coreValues = [
@@ -108,16 +108,16 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Statistics Banner */}
+        {/* Professional Accreditation & Service Pillars Banner */}
         <section className="py-12 bg-white border-b border-[#C2DAF3]/50">
           <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat, idx) => (
-              <div key={idx} className="text-center space-y-2">
-                <div className="text-3xl sm:text-4xl font-extrabold text-[#0163C8] font-heading flex justify-center items-center gap-2">
-                  <span>{stat.icon}</span>
-                  <span>{stat.number}</span>
+            {pillars.map((pillar, idx) => (
+              <div key={idx} className="text-center space-y-1.5 p-4 rounded-2xl bg-[#F4F8FC] border border-[#C2DAF3]/60 shadow-xs">
+                <div className="text-2xl sm:text-3xl font-extrabold text-[#0163C8] font-heading flex justify-center items-center gap-2">
+                  <span>{pillar.icon}</span>
                 </div>
-                <div className="text-xs sm:text-sm text-zinc-600 font-medium">{stat.label}</div>
+                <div className="font-heading font-bold text-sm sm:text-base text-[#061D38]">{pillar.title}</div>
+                <div className="text-[11px] sm:text-xs text-zinc-500 font-medium">{pillar.label}</div>
               </div>
             ))}
           </div>
@@ -134,10 +134,10 @@ export default function AboutPage() {
                 Bridging Students to Top Global Universities & PR Pathways
               </h2>
               <p className="text-zinc-700 leading-relaxed text-sm sm:text-base">
-                Founded over 15 years ago, Legendary Careers started with a singular vision: to replace convoluted visa advice with transparent, outcome-oriented migration solutions.
+                Legendary Careers was founded with a singular vision: to replace convoluted visa advice with transparent, outcome-oriented, and fully compliant migration solutions.
               </p>
               <p className="text-zinc-700 leading-relaxed text-sm sm:text-base">
-                Our team consists of Registered Migration Agents (MARA), QEAC Certified Education Counselors, and legal experts who have navigated thousands of successful visa applications across Australia, Canada, UK, USA, Germany, and New Zealand.
+                Our team consists of Registered Migration Agents (MARA), QEAC Certified Education Counselors, and admissions experts dedicated to navigating Australian, Canadian, UK, USA, German, and New Zealand education and visa pathways.
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
